@@ -3,20 +3,23 @@ const gulp = require('gulp');
 // Importando o SASS compiler
 const sass = require('gulp-dart-sass');
 // Importando o browser-sync
-const browserSync = require('browser-sync');
+const browserSync = require('browser-sync').create();
 
 // Função para compilar o SASS
 function sassComp() {
   return gulp
     .src('./scss/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./css/'));
+    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+    .pipe(gulp.dest('./css/'))
+    .pipe(browserSync.stream());
 }
 
 // Função que inicia o browser-sync
 function browser() {
   browserSync.init({
-    proxy: './',
+    server: {
+      baseDir: './',
+    },
   });
 }
 
