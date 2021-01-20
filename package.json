@@ -4,7 +4,7 @@
   "description": "Dados sobre o futebol brasileiro",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production"
   },
   "author": "Paulo Silveira",
   "license": "ISC",
@@ -12,10 +12,14 @@
     "browser-sync": "^2.26.13",
     "eslint": "^7.18.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1"
+    "eslint-plugin-import": "^2.22.1",
+    "webpack-cli": "^4.4.0"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "gulp": "^4.0.2",
-    "gulp-dart-sass": "^1.0.2"
+    "gulp-dart-sass": "^1.0.2",
+    "webpack": "^5.16.0",
+    "whatwg-fetch": "^3.5.0"
   }
 }
