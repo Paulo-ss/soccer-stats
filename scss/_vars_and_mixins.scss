@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap');
+
+// Variáveis de cor
+$primary-color: #7cff6a;
+$dark-green: #0ea123;
+$white: #ececec;
+$black: #333333;
+
+// Variáveis de fonte
+$font-bold: 'Montserrat', sans-serif;
+
+// Mixin do gradiente
+@mixin green-gradient {
+  background: -moz-linear-gradient(90deg, $dark-green 28%, $primary-color 87%);
+  background: -webkit-linear-gradient(
+    90deg,
+    $dark-green 28%,
+    $primary-color 87%
+  );
+  background: linear-gradient(90deg, $dark-green 28%, $primary-color 87%);
+}
