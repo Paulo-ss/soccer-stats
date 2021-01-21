@@ -1,13 +1,27 @@
+// Importando a font Montserrat
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap');
 
 // Variáveis de cor
 $primary-color: #7cff6a;
 $dark-green: #0ea123;
-$white: #ececec;
+$white: #f8f8f8;
 $black: #333333;
 
 // Variáveis de fonte
-$font-bold: 'Montserrat', sans-serif;
+$font: 'Montserrat', sans-serif;
+
+// Mixin da tipografia
+@mixin type($type) {
+  @if $type == bold {
+    font-family: $font;
+    font-size: 2rem;
+    font-weight: 900;
+  } @else if $type == light {
+    font-family: $font;
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+}
 
 // Mixin do gradiente
 @mixin green-gradient {
@@ -18,4 +32,11 @@ $font-bold: 'Montserrat', sans-serif;
     $primary-color 87%
   );
   background: linear-gradient(90deg, $dark-green 28%, $primary-color 87%);
+}
+
+// Mixing do box-shadow
+@mixin box-shadow {
+  box-shadow: 11px 10px 12px -3px $white;
+  -webkit-box-shadow: 11px 10px 12px -3px $white;
+  -moz-box-shadow: 11px 10px 12px -3px $white;
 }
