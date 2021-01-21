@@ -1,0 +1,55 @@
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  .logo {
+    grid-column: 1 / 2;
+    width: 200px;
+  }
+
+  .main-nav {
+    grid-column: 2 / 3;
+    justify-self: end;
+    @include type(light);
+    color: $black;
+
+    .nav {
+      display: flex;
+    }
+
+    .dropdown-toggler {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 30px;
+      padding: 1rem;
+      background: $white;
+      @include box-shadow;
+
+      li {
+        a {
+          padding: 1rem;
+        }
+      }
+    }
+
+    .dropdown-menu.active {
+      display: block;
+      animation: dropdown 0.3s linear forwards;
+    }
+
+    @keyframes dropdown {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0px);
+      }
+    }
+  }
+}
