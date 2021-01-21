@@ -1,3 +1,4 @@
 node_modules
 .prettierrc.json
 webpack.config.js
+.eslintrc.json
