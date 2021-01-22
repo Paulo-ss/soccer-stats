@@ -4,21 +4,21 @@
 // Variáveis de cor
 $primary-color: #7cff6a;
 $dark-green: #0ea123;
-$white: #f8f8f8;
+$white: #fafafa;
 $black: #333333;
 
 // Variáveis de fonte
 $font: 'Montserrat', sans-serif;
 
 // Mixin da tipografia
-@mixin type($type) {
+@mixin type($type, $size) {
   @if $type == bold {
     font-family: $font;
-    font-size: 2rem;
+    font-size: $size;
     font-weight: 900;
   } @else if $type == light {
     font-family: $font;
-    font-size: 1.1rem;
+    font-size: $size;
     font-weight: 400;
   }
 }
@@ -36,7 +36,12 @@ $font: 'Montserrat', sans-serif;
 
 // Mixing do box-shadow
 @mixin box-shadow {
-  box-shadow: 11px 10px 12px -3px $white;
-  -webkit-box-shadow: 11px 10px 12px -3px $white;
-  -moz-box-shadow: 11px 10px 12px -3px $white;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+// Mixin de border-radius
+@mixin border-radius {
+  border-radius: 5px;
 }
