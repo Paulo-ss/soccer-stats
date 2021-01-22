@@ -10,6 +10,7 @@ export default class dropdown {
 
   // Método que da o toggle no dropdown
   activateDropdown() {
+    this.dropToggle.classList.toggle(this.active);
     this.dropMenu.classList.toggle(this.active);
   }
 

@@ -1,54 +1,116 @@
 .header {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  position: relative;
+  background: $white;
+  @include box-shadow;
 
-  .logo {
-    grid-column: 1 / 2;
-    width: 200px;
-  }
+  .header-wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
 
-  .main-nav {
-    grid-column: 2 / 3;
-    justify-self: end;
-    @include type(light);
-    color: $black;
-
-    .nav {
-      display: flex;
+    .logo {
+      grid-column: 1 / 2;
+      width: 200px;
     }
 
-    .dropdown-toggler {
-      position: relative;
-    }
+    .main-nav {
+      grid-column: 2 / 3;
+      justify-self: end;
+      @include type(light, 1.1rem);
+      color: $black;
 
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      top: 30px;
-      padding: 1rem;
-      background: $white;
-      @include box-shadow;
+      .nav {
+        display: flex;
 
-      li {
-        a {
-          padding: 1rem;
+        li a {
+          position: relative;
+          display: block;
+          padding: 1.5rem 1rem;
+          transition: all 0.2s linear;
+
+          &:hover {
+            background: darken($color: $white, $amount: 4%);
+          }
+        }
+
+        & > li + li {
+          margin-left: 1.5rem;
         }
       }
-    }
 
-    .dropdown-menu.active {
-      display: block;
-      animation: dropdown 0.3s linear forwards;
-    }
+      .dropdown-toggler {
+        position: relative;
 
-    @keyframes dropdown {
-      from {
-        opacity: 0;
-        transform: translateX(-30px);
+        &::after {
+          content: '';
+          display: inline-block;
+          margin-left: 8px;
+          width: 0;
+          height: 0;
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+          border-top: 6px solid $dark-green;
+          transition: all 0.2s linear;
+        }
       }
-      to {
-        opacity: 1;
-        transform: translateX(0px);
+
+      .dropdown-toggler.active {
+        background: darken($color: $white, $amount: 4%);
+
+        &::after {
+          transform: rotate(-180deg);
+        }
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        margin-top: 0;
+        background: $dark-green;
+        @include box-shadow;
+        @include border-radius;
+
+        li {
+          a {
+            padding: 1rem;
+            color: $white;
+
+            &:hover {
+              background: darken($color: $dark-green, $amount: 5%);
+              @include border-radius;
+            }
+          }
+        }
+
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: -10px;
+          left: 55px;
+          width: 0;
+          height: 0;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid $dark-green;
+          transition: all 0.2s linear;
+        }
+      }
+
+      .dropdown-menu.active {
+        display: block;
+        animation: dropdown 0.2s linear forwards;
+      }
+
+      @keyframes dropdown {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0px);
+        }
       }
     }
   }
