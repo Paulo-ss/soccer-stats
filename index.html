@@ -9,31 +9,77 @@
 <body>
 
   <!-- Cabeçalho do site -->
-    <header class="header">
-      <div class="container">
-        <div class="header-wrapper">
-          <div class="logo">
-            <a href="index.html">
-              <img src="./img/logo/Soccer-Stats-Logo.png" alt="Logo Soccer Stats">
+  <header class="header">
+    <div class="container">
+      <div class="header-wrapper">
+        <div class="logo">
+          <a href="index.html">
+            <img src="./img/logo/Soccer-Stats-Logo.png" alt="Logo Soccer Stats">
+          </a>
+        </div>
+        <div class="mobile-button">
+          <button data-mobile-toggle></button>
+        </div>
+        <nav class="main-nav" data-mobile-menu>
+          <ul class="nav">
+            <li><a class="dropdown-toggler" data-dropdown-toggle> Campeonatos </a>
+              <ul class="dropdown-menu" data-dropdown-menu>
+                <li><a href="#"> Campeonato Brasileiro </a></li>
+                <li><a href="#"> Copa do Brasil </a></li>
+              </ul>
+            </li>
+            <li><a href="#"> Partidas ao vivo </a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section campeonatos -->
+  <section class="campeonatos">
+    <div class="container">
+      <div class="campeonatos-wrapper">
+        <div class="section-header">
+          <h1 class="titulo"> Campeonatos </h1>
+          <p class="text"> Acompanhe tudo o que rola nos maiores campeonatos brasileiros </p>
+        </div>
+        <div class="nav-tab">
+          <a href="#campeonato-brasileiro" data-toggle-tab> Campeonato Brasileiro </a>
+          <a href="#copa-do-brasil" data-toggle-tab> Copa do Brasil </a>
+        </div>
+        <div class="campeonato-card" id="campeonato-brasileiro" data-tab-content>
+            <a href="#">
+              <div class="card-img">
+                <img src="./img/Brasileirao_Serie_A_2018.png" alt="Logo Campeonato Brasileiro">
+              </div>
             </a>
+            <div class="card-content">
+              <h2 class="card-title"> Campeonato Brasileiro </h2>
+              <p class="card-info"> Temporada: 2020 </p>
+              <p class="card-info"> Status: Andamento </p>
+              <p class="card-info"> Fase atual: Fase única </p>
+              <p class="card-info"> Tipo: Pontos corridos </p>
+            </div>
+        </div>
+        <div class="campeonato-card" id="copa-do-brasil" data-tab-content>
+          <a href="#">
+            <div class="card-img">
+              <img src="./img/f449a1200f59eac71e2f478950d26364.png" alt="Logo Copa do Brasil">
+            </div>
+          </a>
+          <div class="card-content">
+            <h2 class="card-title"> Copa do Brasil </h2>
+            <p class="card-info"> Temporada: 2020 </p>
+            <p class="card-info"> Status: Andamento </p>
+            <p class="card-info"> Fase atual: Final </p>
+            <p class="card-info"> Tipo: Mata-Mata </p>
           </div>
-          <div class="mobile-button">
-            <button data-mobile-toggle></button>
-          </div>
-          <nav class="main-nav" data-mobile-menu>
-            <ul class="nav">
-              <li><a href="#" class="dropdown-toggler" data-dropdown-toggle> Campeonatos </a>
-                <ul class="dropdown-menu" data-dropdown-menu>
-                  <li><a href="#"> Campeonato Brasileiro </a></li>
-                  <li><a href="#"> Copa do Brasil </a></li>
-                </ul>
-              </li>
-              <li><a href="#"> Partidas ao vivo </a></li>
-            </ul>
-          </nav>
         </div>
       </div>
-    </header>
+    </div>
+  </section>
+
+  <!-- Section -->
   
   <script type="module" src="./js/script.js"></script>
 

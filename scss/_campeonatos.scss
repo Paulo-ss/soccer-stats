@@ -1,0 +1,52 @@
+.campeonatos-wrapper {
+  padding: 2.5rem 0;
+}
+
+.campeonato-card {
+  display: none;
+  align-items: center;
+  margin: 1.5rem 0;
+  padding: 1.5rem 0.5rem;
+  background: $white;
+  @include border-radius;
+  animation: show-left 0.2s linear;
+
+  &.active {
+    display: flex;
+  }
+
+  .card-img {
+    width: 500px;
+  }
+
+  .card-content {
+    position: relative;
+    margin-left: calc(2rem + 15px);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -15px;
+      display: inline-block;
+      width: 4px;
+      height: 100%;
+      background: $dark-green;
+      @include border-radius;
+    }
+
+    .card-title {
+      @include type(bold, 2rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .card-info {
+      @include type(light, 1rem);
+    }
+
+    .card-info + .card-info {
+      margin-top: 1rem;
+    }
+  }
+}
+
+@include key-show-left;

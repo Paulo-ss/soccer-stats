@@ -5,6 +5,7 @@
   width: 100%;
   background: $white;
   @include box-shadow;
+  z-index: 1000;
 
   @include responsive(small) {
     position: relative;
