@@ -1,24 +1,39 @@
+// Header geral
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
   background: $white;
   @include box-shadow;
 
+  @include responsive(small) {
+    position: relative;
+  }
+
+  // Classe de wrapper para o header
   .header-wrapper {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
 
+    // Logo da Soccer Stats
     .logo {
       grid-column: 1 / 2;
       width: 200px;
+      cursor: pointer;
     }
 
+    // Navegação principal
     .main-nav {
       grid-column: 2 / 3;
       justify-self: end;
-      @include type(light, 1.1rem);
       color: $black;
+      @include type(light, 1.1rem);
+      @include responsive(small) {
+        display: none;
+      }
 
+      // Classe da ul dentro de main-nav
       .nav {
         display: flex;
 
@@ -38,6 +53,7 @@
         }
       }
 
+      // Botão para abrir o dropdown-menu
       .dropdown-toggler {
         position: relative;
 
@@ -54,6 +70,7 @@
         }
       }
 
+      // Estilo para quando o dropdown estiver ativo
       .dropdown-toggler.active {
         background: darken($color: $white, $amount: 4%);
 
@@ -62,10 +79,12 @@
         }
       }
 
+      // Dropdown-menu
       .dropdown-menu {
         display: none;
         position: absolute;
         margin-top: 0;
+        padding: 0.5rem 0;
         background: $dark-green;
         @include box-shadow;
         @include border-radius;
@@ -77,7 +96,6 @@
 
             &:hover {
               background: darken($color: $dark-green, $amount: 5%);
-              @include border-radius;
             }
           }
         }
@@ -86,22 +104,24 @@
           content: '';
           display: block;
           position: absolute;
-          top: -10px;
+          top: -7px;
           left: 55px;
           width: 0;
           height: 0;
-          border-left: 10px solid transparent;
-          border-right: 10px solid transparent;
-          border-bottom: 10px solid $dark-green;
+          border-left: 7px solid transparent;
+          border-right: 7px solid transparent;
+          border-bottom: 7px solid $dark-green;
           transition: all 0.2s linear;
         }
       }
 
+      // Estilo do dropdown-menu quando estiver ativo
       .dropdown-menu.active {
         display: block;
         animation: dropdown 0.2s linear forwards;
       }
 
+      // Animação de entrada do dropdown-menu
       @keyframes dropdown {
         from {
           opacity: 0;
@@ -110,6 +130,48 @@
         to {
           opacity: 1;
           transform: translateX(0px);
+        }
+      }
+    }
+
+    // Botão para ativar o menu mobile
+    .mobile-button {
+      justify-self: end;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      padding: 0.3rem;
+      cursor: pointer;
+
+      // Resonsivem para telar pequenas
+      @include responsive(small) {
+        display: flex;
+        margin: 0.92rem 0;
+      }
+
+      // Botão do menu-mobile
+      button {
+        display: block;
+        position: relative;
+        outline: none;
+        border: none;
+        width: 100%;
+        height: 4px;
+        background: $black;
+        @include border-radius;
+        cursor: pointer;
+
+        &::before {
+          content: '';
+          position: absolute;
+          display: inline-block;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          box-shadow: 0 -12px $black, 0 8px $black;
+          @include border-radius;
         }
       }
     }

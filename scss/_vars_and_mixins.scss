@@ -10,6 +10,11 @@ $black: #333333;
 // Variáveis de fonte
 $font: 'Montserrat', sans-serif;
 
+// Variáveis para o responsive
+$large-device: 1100px;
+$medium-device: 800px;
+$small-device: 600px;
+
 // Mixin da tipografia
 @mixin type($type, $size) {
   @if $type == bold {
@@ -44,4 +49,21 @@ $font: 'Montserrat', sans-serif;
 // Mixin de border-radius
 @mixin border-radius {
   border-radius: 5px;
+}
+
+// Mixin para o responsive
+@mixin responsive($device) {
+  @if $device == large {
+    @media (min-width: $large-device) {
+      @content;
+    }
+  } @else if $device == medium {
+    @media (min-width: $medium-device) and (max-width: $large-device - 1) {
+      @content;
+    }
+  } @else if $device == small {
+    @media (max-width: $medium-device - 1) {
+      @content;
+    }
+  }
 }
