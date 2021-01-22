@@ -1,6 +1,7 @@
 // Botão para abrir o dropdown-menu
 .dropdown-toggler {
   position: relative;
+  cursor: pointer;
 
   &::after {
     content: '';
@@ -37,6 +38,7 @@
   li {
     a {
       padding: 1rem;
+      @include type(light, 0.875rem);
       color: $white;
 
       &:hover {

@@ -1,4 +1,4 @@
-export default class dropdown {
+export default class Dropdown {
   constructor(dropToggle, dropMenu, active) {
     // Toggler do dropdown
     this.dropToggle = document.querySelector(dropToggle);
