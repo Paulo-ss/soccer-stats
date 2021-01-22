@@ -67,3 +67,18 @@ $small-device: 600px;
     }
   }
 }
+
+// Mixin de keyframes
+@mixin key-show-left {
+  // Animação de entrada do da esquerda pra direita
+  @keyframes show-left {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+}
