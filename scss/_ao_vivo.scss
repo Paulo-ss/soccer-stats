@@ -1,0 +1,109 @@
+.ao-vivo {
+  padding: 3rem 0 2rem 0;
+}
+
+.slide-ao-vivo {
+  position: relative;
+
+  .slide-controls {
+    .next,
+    .prev {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 40%;
+      width: 40px;
+      height: 40px;
+      background: $dark-green;
+      border: none;
+      border-radius: 50%;
+      outline: none;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        border: 2px solid $black;
+      }
+    }
+
+    .next {
+      right: -50px;
+    }
+
+    .prev {
+      left: -50px;
+      transform: rotate(180deg);
+    }
+  }
+
+  .cards-partida {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    .partida {
+      flex: 1 0 45%;
+      padding: 1.2rem;
+      border: 1px solid $black;
+      @include border-radius;
+
+      h3 {
+        display: flex;
+        align-items: center;
+        @include type(bold, 1.2rem);
+        margin-bottom: 1.5rem;
+
+        .em-andamento {
+          display: inline-block;
+          margin-left: 0.8rem;
+          padding: 0.3rem;
+          background: $dark-green;
+          color: $white;
+          @include type(light, 0.8rem);
+          @include border-radius;
+        }
+      }
+
+      .placar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1.5rem;
+
+        p {
+          margin: 0 1rem;
+          @include type(light, 1rem);
+        }
+
+        .escudo {
+          width: 45px;
+        }
+      }
+
+      .info {
+        display: flex;
+        justify-content: space-around;
+        @include type(light, 1rem);
+
+        p {
+          position: relative;
+
+          &::before {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            left: -10px;
+            width: 3px;
+            height: 100%;
+            background: $dark-green;
+          }
+        }
+      }
+    }
+
+    .partida + .partida {
+      margin-left: 1rem;
+    }
+  }
+}

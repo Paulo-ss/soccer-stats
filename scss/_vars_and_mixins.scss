@@ -1,11 +1,11 @@
 // Importando a font Montserrat
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 // Variáveis de cor
 $primary-color: #7cff6a;
 $dark-green: #0ea123;
 $white: #fafafa;
-$black: #333333;
+$black: #272727;
 
 // Variáveis de fonte
 $font: 'Montserrat', sans-serif;
@@ -20,7 +20,7 @@ $small-device: 600px;
   @if $type == bold {
     font-family: $font;
     font-size: $size;
-    font-weight: 900;
+    font-weight: 700;
   } @else if $type == light {
     font-family: $font;
     font-size: $size;
