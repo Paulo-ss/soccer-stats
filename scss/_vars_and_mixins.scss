@@ -70,7 +70,7 @@ $small-device: 600px;
 
 // Mixin de keyframes
 @mixin key-show-left {
-  // Animação de entrada do da esquerda pra direita
+  // Animação de entrada da esquerda pra direita
   @keyframes show-left {
     from {
       opacity: 0;
@@ -84,7 +84,7 @@ $small-device: 600px;
 }
 
 @mixin key-show-up {
-  // Animação de entrada do da esquerda pra direita
+  // Animação de entrada de cima para baixo
   @keyframes show-up {
     from {
       opacity: 0;

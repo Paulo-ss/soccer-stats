@@ -18,6 +18,10 @@ button {
   padding: 0 0.8rem;
 }
 
+[data-animate-scroll].container {
+  opacity: 0;
+}
+
 .section-header {
   .titulo {
     position: relative;
@@ -85,3 +89,10 @@ button {
     margin-left: 1.5rem;
   }
 }
+
+// Classe que anima as sections ao scroll
+[data-animate-scroll].animate-section {
+  animation: show-left 0.3s ease-in-out forwards;
+}
+
+@include key-show-left;
