@@ -17,6 +17,10 @@
       display: flex;
       align-items: center;
 
+      @include responsive(small) {
+        font-size: 0.9rem;
+      }
+
       a {
         margin-left: 0.3rem;
       }

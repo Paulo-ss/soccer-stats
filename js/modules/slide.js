@@ -1,3 +1,8 @@
+// Importando a função helper de macthMedia
+import media from '../helpers/matchMedia.js';
+// Importando a função helper de debounce
+import debounce from '../helpers/debounce.js';
+
 export default class Slide {
   constructor(prevBtn, nextBtn, slideContent, slide, active) {
     // Botão que muda o slide para o anterior
@@ -13,11 +18,17 @@ export default class Slide {
     // Estado atual do slide
     this.currentSlide = 0;
     // Verifica se existem próximos slides
-    this.totalNext = Math.floor((this.slide.length - 1) / 2);
+    this.totalNext = media('(max-width: 799px)')
+      ? this.slide.length - 1
+      : Math.floor((this.slide.length - 1) / 2);
 
     // Bind dos métodos de callback
     this.goToPrevSlide = this.goToPrevSlide.bind(this);
     this.goToNextSlide = this.goToNextSlide.bind(this);
+
+    // Bind e aplicando debounce nos métodos de callback do evento de resize
+    this.verifyMedia = debounce(this.verifyMedia.bind(this), 100);
+    this.goToCurrentSlide = debounce(this.goToCurrentSlide.bind(this), 100);
   }
 
   verifySlides() {
@@ -38,6 +49,20 @@ export default class Slide {
     }
   }
 
+  // Atualiza o valor do total de próximos slides
+  // no resize da página
+  verifyMedia() {
+    this.totalNext = media('(max-width: 799px)')
+      ? this.slide.length - 1
+      : Math.floor((this.slide.length - 1) / 2);
+
+    if (this.currentSlide > this.totalNext) {
+      this.currentSlide = this.totalNext;
+    }
+
+    this.verifySlides();
+  }
+
   // Método para pegar a largura do container do slide
   // e mudar o valor do translate de acordo com o slide
   // ativo no momento
@@ -55,7 +80,8 @@ export default class Slide {
   // Muda para o slide anterior
   goToPrevSlide() {
     if (this.currentSlide > 0) {
-      this.moveSlide(this.slideInfo(this.currentSlide--));
+      this.currentSlide--;
+      this.moveSlide(this.slideInfo());
       this.verifySlides();
     }
   }
@@ -63,15 +89,32 @@ export default class Slide {
   // Muda para o próximo slide
   goToNextSlide() {
     if (this.currentSlide < this.totalNext) {
-      this.moveSlide(this.slideInfo(this.currentSlide++));
+      this.currentSlide++;
+      this.moveSlide(this.slideInfo());
       this.verifySlides();
     }
+  }
+
+  // Move para o slide atual ao resize da página
+  goToCurrentSlide() {
+    this.moveSlide(this.slideInfo());
+  }
+
+  // Adiciona o evento de resize no window
+  windowResize() {
+    window.addEventListener('resize', () => {
+      this.verifyMedia();
+      this.goToCurrentSlide();
+    });
   }
 
   // Adicionando os eventos aos botões controladores do slide
   addEvents() {
     this.prevBtn.addEventListener('click', this.goToPrevSlide);
+    this.prevBtn.addEventListener('touchstart', this.goToPrevSlide);
+
     this.nextBtn.addEventListener('click', this.goToNextSlide);
+    this.nextBtn.addEventListener('touchstart', this.goToPrevSlide);
   }
 
   // Método que inicia a classe
@@ -83,6 +126,8 @@ export default class Slide {
       this.slide.length
     ) {
       this.addEvents();
+      this.windowResize();
+      this.verifyMedia();
       this.verifySlides();
     }
 
