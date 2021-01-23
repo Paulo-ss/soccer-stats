@@ -96,3 +96,17 @@ $small-device: 600px;
     }
   }
 }
+
+@mixin key-scale-center {
+  // Animação de entrada de scale de fora pra dentro
+  @keyframes scale-center {
+    from {
+      opacity: 0;
+      transform: scale(0);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
