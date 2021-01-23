@@ -6,21 +6,27 @@
   position: relative;
 
   .slide-controls {
+    position: absolute;
+    top: 62%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
     .next,
     .prev {
       display: flex;
       justify-content: center;
       align-items: center;
-      position: absolute;
-      top: 60%;
       width: 40px;
       height: 40px;
       background: $dark-green;
       border: none;
-      border-radius: 50%;
+      @include border-radius;
       outline: none;
-      cursor: pointer;
+      cursor: inherit;
       z-index: 100;
+      opacity: 0;
+      transition: all 0.3s ease-in;
 
       &:hover,
       &:focus {
@@ -29,12 +35,19 @@
     }
 
     .next {
-      right: -50px;
+      &.active {
+        opacity: 1;
+        cursor: pointer;
+      }
     }
 
     .prev {
-      left: -50px;
       transform: rotate(180deg);
+
+      &.active {
+        opacity: 1;
+        cursor: pointer;
+      }
     }
   }
 }
@@ -63,13 +76,8 @@
     display: flex;
     transition: all 0.5s ease-in-out;
 
-    .partida-slide {
-      flex: 1 0 100%;
-      display: flex;
-    }
-
     .partida {
-      flex: 1 0 auto;
+      flex: 1 0 calc(50% - 0.5rem);
       padding: 1.2rem;
       border: 1px solid $black;
       @include border-radius;
