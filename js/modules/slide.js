@@ -111,10 +111,10 @@ export default class Slide {
   // Adicionando os eventos aos botões controladores do slide
   addEvents() {
     this.prevBtn.addEventListener('click', this.goToPrevSlide);
-    this.prevBtn.addEventListener('touchstart', this.goToPrevSlide);
+    this.prevBtn.addEventListener('touch', this.goToPrevSlide);
 
     this.nextBtn.addEventListener('click', this.goToNextSlide);
-    this.nextBtn.addEventListener('touchstart', this.goToPrevSlide);
+    this.nextBtn.addEventListener('touch', this.goToPrevSlide);
   }
 
   // Método que inicia a classe
