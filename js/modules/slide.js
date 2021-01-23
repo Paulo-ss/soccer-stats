@@ -1,4 +1,4 @@
-export default class slide {
+export default class Slide {
   constructor(prevBtn, nextBtn, slideContent, slide) {
     // Botão que muda o slide para o anterior
     this.prevBtn = document.querySelector(prevBtn);
