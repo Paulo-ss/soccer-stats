@@ -20,6 +20,10 @@
 .dropdown-toggler.active {
   background: darken($color: $white, $amount: 4%);
 
+  @include responsive(small) {
+    background: none;
+  }
+
   &::after {
     transform: rotate(-180deg);
   }
@@ -34,6 +38,10 @@
   background: $dark-green;
   @include box-shadow;
   @include border-radius;
+
+  @include responsive(small) {
+    z-index: 1200;
+  }
 
   li {
     a {

@@ -4,6 +4,8 @@ import Dropdown from './modules/dropdown.js';
 import TabNav from './modules/tabNav.js';
 // Importando a classe do slide
 import Slide from './modules/slide.js';
+// Importando a classe do menuMobile
+import MenuMobile from './modules/menuMobile.js';
 
 // Iniciando o objeto dropdown
 const dropdown = new Dropdown(
@@ -26,3 +28,11 @@ const slide = new Slide(
   'active'
 );
 slide.init();
+
+// Iniciando o objeto menuMobile
+const menuMobile = new MenuMobile(
+  '[data-mobile-toggle]',
+  '[data-mobile-menu]',
+  'active'
+);
+menuMobile.init();

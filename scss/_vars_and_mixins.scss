@@ -82,3 +82,17 @@ $small-device: 600px;
     }
   }
 }
+
+@mixin key-show-up {
+  // Animação de entrada do da esquerda pra direita
+  @keyframes show-up {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+}
