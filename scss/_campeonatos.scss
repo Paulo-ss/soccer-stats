@@ -4,6 +4,7 @@
 
 .campeonato-card {
   display: none;
+  justify-content: center;
   align-items: center;
   margin: 1.5rem 0;
   padding: 1.5rem 0.5rem;
@@ -11,10 +12,24 @@
 
   &.active {
     display: flex;
+
+    @include responsive(small) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   .card-img {
     width: 500px;
+
+    @include responsive(medium) {
+      max-width: 350px;
+    }
+
+    @include responsive(small) {
+      max-width: 300px;
+      margin-bottom: 2rem;
+    }
   }
 
   .card-content {
@@ -24,6 +39,10 @@
     background: $white;
     @include box-shadow;
     @include border-radius;
+
+    @include responsive(small) {
+      margin-left: 0;
+    }
 
     &::before {
       content: '';
@@ -35,11 +54,23 @@
       height: 100%;
       background: $dark-green;
       @include border-radius;
+
+      @include responsive(small) {
+        display: none;
+      }
     }
 
     .card-title {
       @include type(bold, 2rem);
       margin-bottom: 1.5rem;
+
+      @include responsive(medium) {
+        font-size: 1.35rem;
+      }
+
+      @include responsive(small) {
+        font-size: 1.35rem;
+      }
     }
 
     .card-info {

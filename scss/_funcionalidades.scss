@@ -1,5 +1,5 @@
 .funcionalidades {
-  padding: 5.5rem;
+  padding: 5.5rem 0;
   background: $black;
 
   .funcionalidade-content {
@@ -8,6 +8,10 @@
     gap: 1.5rem;
     justify-content: center;
     margin-top: 3rem;
+
+    @include responsive(small) {
+      grid-template-columns: 1fr;
+    }
 
     .funcionalidade-card {
       @include box-shadow;
