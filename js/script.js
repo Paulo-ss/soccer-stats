@@ -2,6 +2,8 @@
 import Dropdown from './modules/dropdown.js';
 // Importando a classe da navegação por tabs
 import TabNav from './modules/tabNav.js';
+// Importando a classe do slide
+import Slide from './modules/slide.js';
 
 // Iniciando o objeto dropdown
 const dropdown = new Dropdown(
@@ -14,3 +16,13 @@ dropdown.init();
 // Iniciando o objeto TabNav
 const tabNav = new TabNav('[data-toggle-tab]', '[data-tab-content]', 'active');
 tabNav.init();
+
+// Iniciando o objeto Slide
+const slide = new Slide(
+  '[data-prev-slide]',
+  '[data-next-slide]',
+  '[data-slide-content]',
+  '[data-slide]',
+  'active'
+);
+slide.init();

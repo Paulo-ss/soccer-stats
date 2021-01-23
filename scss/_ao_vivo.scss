@@ -2,7 +2,7 @@
   padding: 3rem 0 2rem 0;
 }
 
-.slide-ao-vivo {
+.ao-vivo-wrapper {
   position: relative;
 
   .slide-controls {
@@ -12,7 +12,7 @@
       justify-content: center;
       align-items: center;
       position: absolute;
-      top: 40%;
+      top: 60%;
       width: 40px;
       height: 40px;
       background: $dark-green;
@@ -20,6 +20,7 @@
       border-radius: 50%;
       outline: none;
       cursor: pointer;
+      z-index: 100;
 
       &:hover,
       &:focus {
@@ -36,14 +37,39 @@
       transform: rotate(180deg);
     }
   }
+}
+
+.slide-ao-vivo {
+  position: relative;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 40px;
+    background: rgba(0, 0, 0, 0.05);
+    filter: blur(12px);
+  }
+
+  &::after {
+    top: 0;
+    right: 0;
+  }
 
   .cards-partida {
     display: flex;
-    align-items: center;
-    overflow: hidden;
+    transition: all 0.3s ease-in;
+
+    .partida-slide {
+      flex: 1 0 100%;
+      display: flex;
+    }
 
     .partida {
-      flex: 1 0 45%;
+      flex: 1 0 auto;
       padding: 1.2rem;
       border: 1px solid $black;
       @include border-radius;
