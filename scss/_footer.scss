@@ -1,0 +1,67 @@
+.footer {
+  @include green-gradient;
+
+  .footer-wrapper {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .logo {
+      max-width: 300px;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-text {
+      @include type(bold, 1rem);
+      display: flex;
+      align-items: center;
+
+      a {
+        margin-left: 0.3rem;
+      }
+
+      img {
+        width: 25px;
+        margin-left: 0.5rem;
+      }
+    }
+  }
+
+  .powerded-by {
+    background: $black;
+    padding: 1rem;
+
+    h3 {
+      @include type(light, 1rem);
+      color: $white;
+      text-align: center;
+
+      a {
+        @include type(bold, 1rem);
+        color: $white;
+      }
+    }
+  }
+
+  a {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: $white;
+      transform: scaleX(0);
+      transition: all 0.2s ease-in;
+    }
+
+    &:hover::before {
+      transform: scaleX(1);
+    }
+  }
+}
