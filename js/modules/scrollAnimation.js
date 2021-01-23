@@ -11,7 +11,7 @@ export default class ScrollAnimation {
     this.active = active;
 
     // Bind nos métodos de callback
-    this.animateScroll = debounce(this.animateScroll.bind(this), 100);
+    this.animateScroll = debounce(this.animateScroll.bind(this), 80);
   }
 
   // Método que pega a distância do topo de cada section

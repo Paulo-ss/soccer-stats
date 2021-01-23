@@ -96,3 +96,14 @@ button {
 }
 
 @include key-show-left;
+
+// Classe da animação do efeito dominó
+[data-animate-domino] {
+  opacity: 0;
+}
+
+.animate-domino {
+  animation: scale-center 0.3s ease-in-out forwards;
+}
+
+@include key-scale-center;

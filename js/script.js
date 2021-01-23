@@ -8,6 +8,8 @@ import Slide from './modules/slide.js';
 import MenuMobile from './modules/menuMobile.js';
 // Importando a classe que anima as seções do site ao scroll
 import ScrollAnimation from './modules/scrollAnimation.js';
+// Importando a classe que anima elementos com um efeito dominó
+import DominoAnimation from './modules/dominoAnimation.js';
 
 // Iniciando o objeto dropdown
 const dropdown = new Dropdown(
@@ -45,3 +47,12 @@ const scrollAnimation = new ScrollAnimation(
   'animate-section'
 );
 scrollAnimation.init();
+
+// Iniciando o objeto DominoAnimation
+const dominoAnimation = new DominoAnimation(
+  '[data-animate-domino]',
+  '[data-animate-domino-target]',
+  'animate-section',
+  'animate-domino'
+);
+dominoAnimation.init();
