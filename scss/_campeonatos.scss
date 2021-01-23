@@ -7,8 +7,6 @@
   align-items: center;
   margin: 1.5rem 0;
   padding: 1.5rem 0.5rem;
-  background: $white;
-  @include border-radius;
   animation: show-left 0.2s linear;
 
   &.active {
@@ -22,10 +20,15 @@
   .card-content {
     position: relative;
     margin-left: calc(2rem + 15px);
+    padding: 1rem 2.5rem;
+    background: $white;
+    @include box-shadow;
+    @include border-radius;
 
     &::before {
       content: '';
       position: absolute;
+      top: 0;
       left: -15px;
       display: inline-block;
       width: 4px;
