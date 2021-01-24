@@ -1,5 +1,8 @@
 // Importando os endpoints da API
-import { GET_CAMPEONATOS, GET_PARTIDAS_AO_VIVO } from './helpers/endpoints.js';
+import {
+  GET_CAMPEONATOS,
+  GET_PARTIDAS_AO_VIVO,
+} from './helpers/endpoint/endpoints.js';
 
 // Importando as funções de template HTML que serão gerados
 import campCardHTML from './helpers/templateHTML/campCard.js';
@@ -8,7 +11,7 @@ import dropdownHTML from './helpers/templateHTML/dropdown.js';
 import slideHTML from './helpers/templateHTML/slideHTML.js';
 
 // Importando a classe que realiza o fecth na API
-import FetchAPI from './helpers/fetchAPI.js';
+import FetchAPI from './helpers/fetch/fetchAPI.js';
 
 // Importando a classe do Dropdown
 import Dropdown from './modules/dropdown.js';

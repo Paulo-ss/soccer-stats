@@ -3,7 +3,7 @@ export default function dropdownHTML(campeonato) {
   const { campeonato_id, nome } = campeonato;
 
   const innerHTML = `<li>
-                        <a href="campeonato.html/${campeonato_id}"> 
+                        <a href="campeonato.html?id=${campeonato_id}"> 
                           ${nome} 
                         </a>
                       </li>`;

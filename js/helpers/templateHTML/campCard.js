@@ -6,7 +6,7 @@ export default function campCardHTML(campeonato) {
   const { nome: nomeFase } = campeonato.fase_atual;
 
   const innerHTML = `<div class="campeonato-card" id="${slug}" data-tab-content>
-                        <a href="campeonato.html/${campeonato_id}">
+                        <a href="campeonato.html?id=${campeonato_id}">
                           <div class="card-img">
                             <img src="${logo}" alt="Logo ${nome}">
                           </div>

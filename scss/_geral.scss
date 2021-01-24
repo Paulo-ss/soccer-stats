@@ -110,7 +110,7 @@ button {
 
 // Animação de loading
 .loading {
-  position: absolute;
+  position: fixed;
   top: 0;
   display: none;
   flex-direction: column;
