@@ -110,3 +110,15 @@ $small-device: 600px;
     }
   }
 }
+
+@mixin key-loading {
+  // Animação de loading
+  @keyframes loading {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(165%);
+    }
+  }
+}

@@ -69,6 +69,7 @@ const fetchTab = new FetchAPI(
   navTabHTML,
   GET_CAMPEONATOS
 );
+console.log(fetchTab.loading);
 fetchTab.init();
 
 // Iniciando a classe de fetchAPI para os campeonatos
@@ -81,4 +82,5 @@ const fetchCampeonato = new FetchAPI(
   '[data-tab-content]',
   'active'
 );
+console.log(fetchCampeonato.loading);
 fetchCampeonato.init();
