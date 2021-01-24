@@ -40,7 +40,7 @@
   <!-- Section campeonatos -->
   <section class="campeonatos">
     <div class="container" data-animate-scroll>
-      <div class="campeonatos-wrapper">
+      <div class="campeonatos-wrapper" data-append="campeonato">
         <div class="section-header">
           <h1 class="titulo"> Campeonatos </h1>
           <p class="text"> Acompanhe tudo o que rola nos maiores campeonatos brasileiros </p>
@@ -49,34 +49,8 @@
           <a href="#campeonato-brasileiro" data-toggle-tab> Campeonato Brasileiro </a>
           <a href="#copa-do-brasil" data-toggle-tab> Copa do Brasil </a>
         </div>
-        <div class="campeonato-card" id="campeonato-brasileiro" data-tab-content>
-            <a href="#">
-              <div class="card-img">
-                <img src="./img/Brasileirao_Serie_A_2018.png" alt="Logo Campeonato Brasileiro">
-              </div>
-            </a>
-            <div class="card-content">
-              <h2 class="card-title"> Campeonato Brasileiro </h2>
-              <p class="card-info"> Temporada: 2020 </p>
-              <p class="card-info"> Status: Andamento </p>
-              <p class="card-info"> Fase atual: Fase única </p>
-              <p class="card-info"> Tipo: Pontos corridos </p>
-            </div>
-        </div>
-        <div class="campeonato-card" id="copa-do-brasil" data-tab-content>
-          <a href="#">
-            <div class="card-img">
-              <img src="./img/f449a1200f59eac71e2f478950d26364.png" alt="Logo Copa do Brasil">
-            </div>
-          </a>
-          <div class="card-content">
-            <h2 class="card-title"> Copa do Brasil </h2>
-            <p class="card-info"> Temporada: 2020 </p>
-            <p class="card-info"> Status: Andamento </p>
-            <p class="card-info"> Fase atual: Final </p>
-            <p class="card-info"> Tipo: Mata-Mata </p>
-          </div>
-        </div>
+        <!-- Os elementos de campeonato-card serão gerados através de JS
+        e posicionados logo após desse comentário -->
       </div>
     </div>
   </section>

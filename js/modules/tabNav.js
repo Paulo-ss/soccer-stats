@@ -35,7 +35,6 @@ export default class TabNav {
   init() {
     if (this.tabToggle.length && this.tabContent.length) {
       this.addEvents();
-
       this.tabToggle[0].classList.add(this.active);
       this.tabContent[0].classList.add(this.active);
     }

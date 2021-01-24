@@ -1,3 +1,12 @@
+// Importando os endpoints da API
+import { GET_CAMPEONATOS } from './helpers/endpoints.js';
+
+// Importando as funções de template HTML que serão gerados
+import campCardHTML from './helpers/templateHTML/campCard.js';
+
+// Importando a classe que realiza o fecth na API
+import FetchAPI from './helpers/fetchAPI.js';
+
 // Importando a classe do Dropdown
 import Dropdown from './modules/dropdown.js';
 // Importando a classe da navegação por tabs
@@ -18,10 +27,6 @@ const dropdown = new Dropdown(
   'active'
 );
 dropdown.init();
-
-// Iniciando o objeto TabNav
-const tabNav = new TabNav('[data-toggle-tab]', '[data-tab-content]', 'active');
-tabNav.init();
 
 // Iniciando o objeto Slide
 const slide = new Slide(
@@ -56,3 +61,15 @@ const dominoAnimation = new DominoAnimation(
   'animate-domino'
 );
 dominoAnimation.init();
+
+// Iniciando a classe de fetchAPI para os campeonatos
+const fetchCampeonato = new FetchAPI(
+  '[data-append="campeonato"]',
+  campCardHTML,
+  GET_CAMPEONATOS,
+  TabNav,
+  '[data-toggle-tab]',
+  '[data-tab-content]',
+  'active'
+);
+fetchCampeonato.init();

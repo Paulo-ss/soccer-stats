@@ -37,7 +37,6 @@ export default class DominoAnimation {
   init() {
     if (this.elements.length && this.observerTarget) {
       this.startObserver();
-      console.log(this.elements);
     }
 
     return this;
