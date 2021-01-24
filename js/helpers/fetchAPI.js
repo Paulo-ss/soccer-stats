@@ -61,12 +61,15 @@ export default class FetchAPI {
 
     this.loading = true;
     this.loadingElement.classList.add('active');
+    document.body.style.overflow = 'hidden';
 
     const response = await fetch(url, options);
     const json = await response.json();
 
     this.loading = false;
     this.loadingElement.classList.remove('active');
+    document.body.style.overflow = 'auto';
+
     this.typeofData(json);
 
     // Declarando a classe passando seus argumentos e a iniciando
