@@ -19,6 +19,8 @@ export default class FetchAPI {
 
     // Estado de loading
     this.loading = false;
+    // Elemento HTML de loading
+    this.loadingElement = document.querySelector('[data-loading]');
   }
 
   // Método que cria um novo elemento com o conteúdo
@@ -58,11 +60,13 @@ export default class FetchAPI {
     const { url, options } = this.fetchConfig();
 
     this.loading = true;
+    this.loadingElement.classList.add('active');
 
     const response = await fetch(url, options);
     const json = await response.json();
 
     this.loading = false;
+    this.loadingElement.classList.remove('active');
     this.typeofData(json);
 
     // Declarando a classe passando seus argumentos e a iniciando
