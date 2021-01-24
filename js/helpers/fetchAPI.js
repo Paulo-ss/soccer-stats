@@ -3,11 +3,16 @@ export default class FetchAPI {
     appendTarget,
     templateHTMLFunc,
     fetchConfig,
+    active,
     classe,
     ...classeArgs
   ) {
+    // Elemento no DOM que receberá o novo elemento criado
     this.appendTarget = document.querySelector(appendTarget);
+    // Função com o HTML em template string do elemento criado
     this.templateHTMLFunc = templateHTMLFunc;
+    // Função do endpoint.js que retorna um objeto com a url e
+    // as options para o fetch
     this.fetchConfig = fetchConfig;
 
     // Propriedade com a classe que deverá ser criada e iniciada
@@ -21,6 +26,8 @@ export default class FetchAPI {
     this.loading = false;
     // Elemento HTML de loading
     this.loadingElement = document.querySelector('[data-loading]');
+    // Classe CSS de active para mostrar o elemento de loading
+    this.active = active;
   }
 
   // Método que cria um novo elemento com o conteúdo
@@ -45,43 +52,64 @@ export default class FetchAPI {
     return Object.prototype.toString.call(json);
   }
 
-  // Método que dependendo do tipo de dado retornado,
-  // executa uma função ou outra
+  // Método que ativa o método de verificação de dado. Caso
+  // seja uma array, executa o handleArray() que executa o
+  // createElement(), caso seja um objeto, executa direto
+  // o createElement()
   typeofData(json) {
     const verifyObject = this.verifyData.bind(null);
 
     if (verifyObject(json) === '[object Array]') {
       this.handleArray(json);
+    } else {
+      this.createElement(json);
     }
   }
 
   // Método que faz o fetch na url
   async fetchAPI() {
+    // Pegando a url e as opções do fetch a partir da função
+    // de congifuração (endpoints.js) que foi passada
     const { url, options } = this.fetchConfig();
 
+    // Setando o loading para true
     this.loading = true;
-    this.loadingElement.classList.add('active');
+    this.loadingElement.classList.add(this.active);
     document.body.style.overflow = 'hidden';
 
+    // Pegando a resposta do fetch e convertendo para JSON
     const response = await fetch(url, options);
     const json = await response.json();
 
+    // Setando o loading para false
     this.loading = false;
-    this.loadingElement.classList.remove('active');
+    this.loadingElement.classList.remove(this.active);
     document.body.style.overflow = 'auto';
 
-    this.typeofData(json);
+    // Só inicia a classe e cria os elementos se a resposta
+    // da requisição no fetch for true
+    if (response.ok) {
+      // Verificando o tipo de dado retornado (array ou objeto),
+      // e a partir disso executa as demais funções da classe
+      this.typeofData(json);
 
-    // Declarando a classe passando seus argumentos e a iniciando
-    if (this.classe) {
-      const classe = new this.classe(...this.classeArgs);
-      classe.init();
+      // Caso alguma classe tenha sido fornecida como argumento,
+      // a mesma é iniciada com os seus argumentos fornecidos
+      if (this.classe) {
+        const classe = new this.classe(...this.classeArgs);
+        classe.init();
+      }
     }
   }
 
   // Método que inicia a classe
   init() {
-    if (this.appendTarget && this.templateHTMLFunc && this.fetchConfig) {
+    if (
+      this.appendTarget &&
+      this.templateHTMLFunc &&
+      this.fetchConfig &&
+      this.active
+    ) {
       this.fetchAPI();
     }
 

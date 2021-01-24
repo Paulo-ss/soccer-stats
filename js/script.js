@@ -21,8 +21,10 @@ import MenuMobile from './modules/menuMobile.js';
 import ScrollAnimation from './modules/scrollAnimation.js';
 // Importando a classe que anima elementos com um efeito dominó
 import DominoAnimation from './modules/dominoAnimation.js';
+// Importando a classe do scroll suave
+import SmoothScroll from './modules/smoothScroll.js';
 
-// Iniciando o objeto dropdown
+// Iniciando a classe dropdown
 const dropdown = new Dropdown(
   '[data-dropdown-toggle]',
   '[data-dropdown-menu]',
@@ -30,7 +32,7 @@ const dropdown = new Dropdown(
 );
 dropdown.init();
 
-// Iniciando o objeto Slide
+// Iniciando a classe Slide
 const slide = new Slide(
   '[data-prev-slide]',
   '[data-next-slide]',
@@ -40,7 +42,7 @@ const slide = new Slide(
 );
 slide.init();
 
-// Iniciando o objeto MenuMobile
+// Iniciando a classe MenuMobile
 const menuMobile = new MenuMobile(
   '[data-mobile-toggle]',
   '[data-mobile-menu]',
@@ -48,14 +50,14 @@ const menuMobile = new MenuMobile(
 );
 menuMobile.init();
 
-// Iniciando o objeto ScrollAnimation
+// Iniciando a classe ScrollAnimation
 const scrollAnimation = new ScrollAnimation(
   '[data-animate-scroll]',
   'animate-section'
 );
 scrollAnimation.init();
 
-// Iniciando o objeto DominoAnimation
+// Iniciando a classe DominoAnimation
 const dominoAnimation = new DominoAnimation(
   '[data-animate-domino]',
   '[data-animate-domino-target]',
@@ -64,11 +66,21 @@ const dominoAnimation = new DominoAnimation(
 );
 dominoAnimation.init();
 
+// Iniciando a classe SmoothScroll
+const smoothScroll = new SmoothScroll(
+  '[data-scroll-trigger]',
+  '[data-mobile-toggle]',
+  '[data-mobile-menu]',
+  'active'
+);
+smoothScroll.init();
+
 // Iniciando a classe de fetchAPI para o dropdown-menu
 const fetchDropdown = new FetchAPI(
   '[data-append="dropdown"]',
   dropdownHTML,
-  GET_CAMPEONATOS
+  GET_CAMPEONATOS,
+  'active'
 );
 fetchDropdown.init();
 
@@ -76,7 +88,8 @@ fetchDropdown.init();
 const fetchTab = new FetchAPI(
   '[data-append="tabNav"]',
   navTabHTML,
-  GET_CAMPEONATOS
+  GET_CAMPEONATOS,
+  'active'
 );
 fetchTab.init();
 
@@ -85,6 +98,7 @@ const fetchCampeonato = new FetchAPI(
   '[data-append="campeonato"]',
   campCardHTML,
   GET_CAMPEONATOS,
+  'active',
   TabNav,
   '[data-toggle-tab]',
   '[data-tab-content]',
