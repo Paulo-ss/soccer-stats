@@ -1,10 +1,11 @@
 // Importando os endpoints da API
-import { GET_CAMPEONATOS } from './helpers/endpoints.js';
+import { GET_CAMPEONATOS, GET_PARTIDAS_AO_VIVO } from './helpers/endpoints.js';
 
 // Importando as funções de template HTML que serão gerados
 import campCardHTML from './helpers/templateHTML/campCard.js';
 import navTabHTML from './helpers/templateHTML/navTab.js';
 import dropdownHTML from './helpers/templateHTML/dropdown.js';
+import slideHTML from './helpers/templateHTML/slideHTML.js';
 
 // Importando a classe que realiza o fecth na API
 import FetchAPI from './helpers/fetchAPI.js';
@@ -23,24 +24,6 @@ import ScrollAnimation from './modules/scrollAnimation.js';
 import DominoAnimation from './modules/dominoAnimation.js';
 // Importando a classe do scroll suave
 import SmoothScroll from './modules/smoothScroll.js';
-
-// Iniciando a classe dropdown
-const dropdown = new Dropdown(
-  '[data-dropdown-toggle]',
-  '[data-dropdown-menu]',
-  'active'
-);
-dropdown.init();
-
-// Iniciando a classe Slide
-const slide = new Slide(
-  '[data-prev-slide]',
-  '[data-next-slide]',
-  '[data-slide-content]',
-  '[data-slide]',
-  'active'
-);
-slide.init();
 
 // Iniciando a classe MenuMobile
 const menuMobile = new MenuMobile(
@@ -80,6 +63,10 @@ const fetchDropdown = new FetchAPI(
   '[data-append="dropdown"]',
   dropdownHTML,
   GET_CAMPEONATOS,
+  'active',
+  Dropdown,
+  '[data-dropdown-toggle]',
+  '[data-dropdown-menu]',
   'active'
 );
 fetchDropdown.init();
@@ -105,3 +92,18 @@ const fetchCampeonato = new FetchAPI(
   'active'
 );
 fetchCampeonato.init();
+
+// Iniciando a classe de fetchAPI para o slide
+const fetchSlide = new FetchAPI(
+  '[data-append="slide"]',
+  slideHTML,
+  GET_PARTIDAS_AO_VIVO,
+  'active',
+  Slide,
+  '[data-prev-slide]',
+  '[data-next-slide]',
+  '[data-slide-content]',
+  '[data-slide]',
+  'active'
+);
+fetchSlide.init();
