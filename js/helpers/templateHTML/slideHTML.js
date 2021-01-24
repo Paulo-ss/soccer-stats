@@ -13,7 +13,7 @@ export default function slideHTML(partida) {
   const { nome_popular: nomeTimeV, escudo: escudoV } = partida.time_visitante;
 
   const innerHTML = `<div class="partida" data-slide>
-                      <a href="partida.html/${partida_id}">
+                      <a href="partida.html?id=${partida_id}">
                         <h3> ${nomeCampeonato} <span class="em-andamento"> ${status} </span> </h3>
                         <div class="placar">
                           <img class="escudo" src="${escudoM}" alt="Escudo do ${nomeTimeM}">
