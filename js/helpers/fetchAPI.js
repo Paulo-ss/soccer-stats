@@ -18,7 +18,7 @@ export default class FetchAPI {
     this.classeArgs = classeArgs;
 
     // Estado de loading
-    this.loading = true;
+    this.loading = false;
   }
 
   // Método que cria um novo elemento com o conteúdo
@@ -66,13 +66,15 @@ export default class FetchAPI {
     this.typeofData(json);
 
     // Declarando a classe passando seus argumentos e a iniciando
-    const classe = new this.classe(...this.classeArgs);
-    classe.init();
+    if (this.classe) {
+      const classe = new this.classe(...this.classeArgs);
+      classe.init();
+    }
   }
 
   // Método que inicia a classe
   init() {
-    if (this.appendTarget) {
+    if (this.appendTarget && this.templateHTMLFunc && this.fetchConfig) {
       this.fetchAPI();
     }
 
