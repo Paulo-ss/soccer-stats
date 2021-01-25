@@ -14,6 +14,19 @@ export function GET_CAMPEONATOS() {
   };
 }
 
+// Endpoint de um campeonato específico
+export function GET_CAMPEONATO(campeonato_id) {
+  return {
+    url: `https://api.api-futebol.com.br/v1/campeonatos/${campeonato_id}`,
+    options: {
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${apiKey}`,
+      },
+    },
+  };
+}
+
 // Endpoint partidas ao vivo
 export function GET_PARTIDAS_AO_VIVO() {
   return {

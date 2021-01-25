@@ -2,8 +2,10 @@
   margin: 2rem 0;
 
   .wrapper {
-    display: flex;
-    align-items: center;
+    & > div {
+      display: flex;
+      align-items: center;
+    }
   }
 
   .camp-img {
