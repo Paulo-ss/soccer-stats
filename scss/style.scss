@@ -3,10 +3,15 @@
 @import 'reset';
 @import 'geral';
 
-// Elementos
+// Elementos gerais
 @import 'header';
+@import 'footer';
 @import 'dropdown';
+
+// Sections index.html
 @import 'campeonatos';
 @import 'funcionalidades';
 @import 'ao_vivo';
-@import 'footer';
+
+// Sections campeonato.html
+@import 'campeonato';
