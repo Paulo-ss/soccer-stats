@@ -1,8 +1,12 @@
+// Importando a função que pega os parâmetros da URL da página
+import getURLParams from '../getUrlParams/getUrlParams.js';
+
 export default class FetchAPI {
   constructor(
     appendTarget,
     templateHTMLFunc,
     fetchConfig,
+    fetchConfigParams,
     active,
     classe,
     ...classeArgs
@@ -14,6 +18,9 @@ export default class FetchAPI {
     // Função do endpoint.js que retorna um objeto com a url e
     // as options para o fetch
     this.fetchConfig = fetchConfig;
+    // Valor boolean que indica se a função de fetchConfig recebe
+    // um parâmetro da URL como agr ou não
+    this.fetchConfigParams = fetchConfigParams;
 
     // Propriedade com a classe que deverá ser criada e iniciada
     // somente após o fetch e o novo elemento ser criado e posicionado
@@ -37,13 +44,13 @@ export default class FetchAPI {
 
     newElement.innerHTML = this.templateHTMLFunc(data);
 
-    return newElement;
+    this.appendTarget.append(newElement);
   }
 
   // Método que lida com respostas do tipo Array
   handleArray(json) {
     json.forEach((i) => {
-      this.appendTarget.append(this.createElement(i));
+      this.createElement(i);
     });
   }
 
@@ -66,11 +73,25 @@ export default class FetchAPI {
     }
   }
 
+  // Método que verifica se o fetchConfig recebe algum parâmetro
+  // ou não, e retorna a url e options para o fetch
+  getFetchOptions() {
+    if (this.fetchConfigParams) {
+      const { url, options } = this.fetchConfig(getURLParams());
+
+      return { url, options };
+    } else {
+      const { url, options } = this.fetchConfig();
+
+      return { url, options };
+    }
+  }
+
   // Método que faz o fetch na url
   async fetchAPI() {
     // Pegando a url e as opções do fetch a partir da função
     // de congifuração (endpoints.js) que foi passada
-    const { url, options } = this.fetchConfig();
+    const { url, options } = this.getFetchOptions();
 
     // Setando o loading para true
     this.loading = true;

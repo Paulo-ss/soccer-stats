@@ -2,6 +2,7 @@
 import {
   GET_CAMPEONATOS,
   GET_PARTIDAS_AO_VIVO,
+  GET_CAMPEONATO,
 } from './helpers/endpoint/endpoints.js';
 
 // Importando as funções de template HTML que serão gerados
@@ -9,12 +10,10 @@ import campCardHTML from './helpers/templateHTML/campCard.js';
 import navTabHTML from './helpers/templateHTML/navTab.js';
 import dropdownHTML from './helpers/templateHTML/dropdown.js';
 import slideHTML from './helpers/templateHTML/slideHTML.js';
+import campDescHTML from './helpers/templateHTML/campDescHTML.js';
 
 // Importando a classe que realiza o fecth na API
 import FetchAPI from './helpers/fetch/fetchAPI.js';
-
-// Importando a função que pega os parâmetros da URL da página
-import getURLParams from './helpers/getUrlParams/getUrlParams.js';
 
 // Importando a classe do Dropdown
 import Dropdown from './modules/dropdown.js';
@@ -69,6 +68,7 @@ const fetchDropdown = new FetchAPI(
   '[data-append="dropdown"]',
   dropdownHTML,
   GET_CAMPEONATOS,
+  false,
   'active',
   Dropdown,
   '[data-dropdown-toggle]',
@@ -82,6 +82,7 @@ const fetchTab = new FetchAPI(
   '[data-append="tabNav"]',
   navTabHTML,
   GET_CAMPEONATOS,
+  false,
   'active'
 );
 fetchTab.init();
@@ -91,6 +92,7 @@ const fetchCampeonato = new FetchAPI(
   '[data-append="campeonato"]',
   campCardHTML,
   GET_CAMPEONATOS,
+  false,
   'active',
   TabNav,
   '[data-toggle-tab]',
@@ -104,6 +106,7 @@ const fetchSlide = new FetchAPI(
   '[data-append="slide"]',
   slideHTML,
   GET_PARTIDAS_AO_VIVO,
+  false,
   'active',
   Slide,
   '[data-prev-slide]',
@@ -113,3 +116,14 @@ const fetchSlide = new FetchAPI(
   'active'
 );
 fetchSlide.init();
+
+// Iniciando a classe de fetchAPI para pegar as informações
+// do campeonato específico na página de campeonato
+const fetchCamp = new FetchAPI(
+  '[data-append="campeonato-desc"]',
+  campDescHTML,
+  GET_CAMPEONATO,
+  true,
+  'active'
+);
+fetchCamp.init();
