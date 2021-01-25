@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="icon" href="./img/logo/Soccer-Stats-Fav.png">
-  <title> Campeonatos - Soccer Stats </title>
+  <title> Campeonato - Soccer Stats </title>
 </head>
 <body>
 
@@ -14,9 +14,6 @@
     <span class="loading-animation"></span>
   </div>
 
-  <!-- DIV content que pega o conteúdo inteiro da página
-  para que o JS consiga colocar o retorno do fetchPage nela -->
-  <div data-page-content>
     <!-- Cabeçalho do site -->
     <header class="header">
       <div class="container">
@@ -45,6 +42,58 @@
         </div>
       </div>
     </header>
+
+    <!-- Seção com os dados principais do campeonato -->
+    <section class="campeonato-descricao">
+      <div class="container">
+        <div class="wrapper">
+          <div class="camp-img">
+            <img src="./img/f449a1200f59eac71e2f478950d26364.png" alt="Logo da Copa do Brasil">
+          </div>
+          <div class="camp-info">
+            <h1 class="titulo"> Copa do Brasil </h1>
+            <span class="status"> andamento </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção que recebe a tabela (pontos corridos) ou as partidas
+    do mata mata do campeonato -->
+    <section class="campeonato-fase">
+      <div class="tipo"> Mata-Mata </div>
+      <div class="container">
+        <div class="fase-atual">
+          <div class="fase"> Final </div>
+          <div class="partidas">
+            <div class="partida-wrapper">
+              <div class="partida">
+                <p class="data-hora"> 11/02/2021 - 21:30h </p>
+                <div class="times">
+                  <p> Grêmio </p>
+                  <p> x </p>
+                  <p> Palmeiras </p>
+                </div>
+                <p> Arena do Grêmio </p>
+                <a class="btn-partida" href="#"> Ver detalhes </a>
+              </div>
+            </div>
+            <div class="partida-wrapper">
+              <div class="partida">
+                <p class="data-hora"> 17/02/2021 - 21:30 </p>
+                <div class="times">
+                  <p> Palmeiras </p>
+                  <p> x </p>
+                  <p> Grêmio </p>
+                </div>
+                <p> Allianz Parque </p>
+                <a class="btn-partida" href="#"> Ver detalhes </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     
     <!-- Footer -->
     <footer class="footer">
@@ -65,8 +114,6 @@
     </footer>
 
   <script type="module" src="./js/script.js"></script>
-    
-  </div>
   
 </body>
 </html>

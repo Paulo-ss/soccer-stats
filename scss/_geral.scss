@@ -22,31 +22,31 @@ button {
   opacity: 0;
 }
 
-.section-header {
-  .titulo {
-    position: relative;
-    @include type(bold, 2.5rem);
-    margin-bottom: 0.8rem;
+.titulo {
+  position: relative;
+  @include type(bold, 2.5rem);
+  margin-bottom: 0.8rem;
 
-    @include responsive(small) {
-      @include type(bold, 1.8rem);
-    }
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: -10px;
-      display: inline-block;
-      width: 40px;
-      height: 5px;
-      background: $dark-green;
-    }
-
-    &.white {
-      color: $white;
-    }
+  @include responsive(small) {
+    @include type(bold, 1.8rem);
   }
 
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    display: inline-block;
+    width: 40px;
+    height: 5px;
+    background: $dark-green;
+  }
+
+  &.white {
+    color: $white;
+  }
+}
+
+.section-header {
   .text {
     @include type(light, 1.1rem);
     margin-bottom: 2rem;
