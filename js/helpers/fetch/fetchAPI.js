@@ -101,6 +101,7 @@ export default class FetchAPI {
     // Pegando a resposta do fetch e convertendo para JSON
     const response = await fetch(url, options);
     const json = await response.json();
+    console.log(json);
 
     // Setando o loading para false
     this.loading = false;

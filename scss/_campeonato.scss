@@ -5,6 +5,14 @@
     & > div {
       display: flex;
       align-items: center;
+
+      @include responsive(medium) {
+        flex-direction: column;
+      }
+
+      @include responsive(small) {
+        flex-direction: column;
+      }
     }
   }
 
@@ -13,6 +21,14 @@
     border: none;
     border-radius: 50%;
     margin-right: 1.2rem;
+
+    @include responsive(medium) {
+      margin-bottom: 1.5rem;
+    }
+
+    @include responsive(small) {
+      margin-bottom: 1.5rem;
+    }
   }
 
   .camp-info {
@@ -28,74 +44,96 @@
       margin: -15px 0 0 1rem;
     }
   }
-}
 
-.campeonato-fase {
   .tipo {
     padding: 1rem 0;
+    margin: 2rem 0 0 0;
     background: $white;
     text-align: center;
     @include type(bold, 1.8rem);
   }
-
-  .fase-atual {
-    margin: 2rem 0;
-
-    .fase {
-      @include type(bold, 1.5rem);
-      margin-bottom: 1.2rem;
-    }
-
-    .partidas {
-      display: flex;
-      align-items: center;
-      border: 1px solid darken($color: $white, $amount: 5%);
-      @include border-radius;
-
-      .partida-wrapper {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        margin: 1.5rem 0;
-      }
-
-      .partida-wrapper + .partida-wrapper {
-        border-left: 1px solid darken($color: $white, $amount: 5%);
-      }
-
-      .partida {
-        width: 50%;
-        text-align: center;
-
-        & > p {
-          margin-bottom: 2rem;
-          @include type(light, 0.9rem);
-        }
-
-        .times {
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 2rem;
-          @include type(bold, 1rem);
-        }
-
-        .btn-partida {
-          padding: 1rem;
-          background: $black;
-          color: $white;
-          border: 1px solid $white;
-          @include border-radius;
-          @include type(light, 1rem);
-          cursor: pointer;
-          transition: all 0.2s ease;
-
-          &:hover {
-            background: $white;
-            color: $black;
-            border: 1px solid $black;
-          }
-        }
-      }
-    }
-  }
 }
+
+// .campeonato-partidas {
+//   .fase-atual {
+//     margin: 2rem 0;
+
+//     .title {
+//       @include type(bold, 1.5rem);
+//       margin-bottom: 1.2rem;
+//     }
+
+//     .partidas {
+//       display: flex;
+//       align-items: center;
+//       border: 1px solid darken($color: $white, $amount: 5%);
+//       @include border-radius;
+
+//       @include responsive(small) {
+//         flex-direction: column;
+//       }
+
+//       .partida-wrapper {
+//         flex: 1;
+//         display: flex;
+//         justify-content: center;
+//         margin: 1.5rem 0;
+
+//         @include responsive(small) {
+//           width: 100%;
+//         }
+//       }
+
+//       .partida-wrapper + .partida-wrapper {
+//         border-left: 1px solid darken($color: $white, $amount: 5%);
+
+//         @include responsive(small) {
+//           border-left: none;
+//           border-top: 1px solid darken($color: $white, $amount: 5%);
+//         }
+//       }
+
+//       .partida {
+//         width: 50%;
+//         text-align: center;
+
+//         @include responsive(small) {
+//           width: 75%;
+//         }
+
+//         & > p {
+//           margin-bottom: 2rem;
+//           @include type(light, 0.9rem);
+//         }
+
+//         .times {
+//           display: flex;
+//           justify-content: space-between;
+//           margin-bottom: 2rem;
+//           @include type(bold, 1rem);
+//         }
+
+//         .btn-partida {
+//           padding: 1rem;
+//           background: $black;
+//           color: $white;
+//           border: 1px solid $white;
+//           @include border-radius;
+//           @include type(light, 1rem);
+//           cursor: pointer;
+//           transition: all 0.2s ease;
+
+//           @include responsive(small) {
+//             margin-bottom: 1.5rem;
+//           }
+
+//           &:hover {
+//             background: $white;
+//             color: $black;
+//             border: 1px solid $black;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
