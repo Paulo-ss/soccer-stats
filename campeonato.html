@@ -45,24 +45,18 @@
     <section class="campeonato-descricao">
       <div class="container" data-animate-scroll>
         <div class="wrapper" data-append="campeonato-desc">
-          <!-- <div class="camp-img">
-            <img src="./img/f449a1200f59eac71e2f478950d26364.png" alt="Logo da Copa do Brasil">
-          </div>
-          <div class="camp-info">
-            <h1 class="titulo"> Copa do Brasil </h1>
-            <span class="status"> andamento </span>
-          </div> -->
+          <!-- A descrição do campeonato será gerada através de JS -->
         </div>
       </div>
-    </section>
+      <div class="tipo"> Mata-Mata </div>
+    </section>    
 
     <!-- Seção que recebe a tabela (pontos corridos) ou as partidas
     do mata mata do campeonato -->
-    <section class="campeonato-fase">
-      <div class="tipo"> Mata-Mata </div>
+    <!-- <section class="campeonato-partidas">
       <div class="container" data-animate-scroll>
         <div class="fase-atual">
-          <div class="fase"> Final </div>
+          <div class="title"> Partidas </div>
           <div class="partidas">
             <div class="partida-wrapper">
               <div class="partida">
@@ -87,6 +81,26 @@
                 <p> Allianz Parque </p>
                 <a class="btn-partida" href="#"> Ver detalhes </a>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Section com as partidas do campeonato -->
+    <section class="ao-vivo" id="ao-vivo">
+      <div class="container" data-animate-scroll>
+        <div class="section-header">
+          <h1 class="titulo"> Partidas </h1>
+        </div>
+        <div class="slide-controls">
+          <button type="button" class="prev" data-prev-slide> ➜ </button>
+          <button type="button" class="next" data-next-slide> ➜ </button>
+        </div>
+        <div class="ao-vivo-wrapper">
+          <div class="slide-ao-vivo">
+            <div class="cards-partida" data-slide-content data-append="slide">
+              <!-- Os slides com as partidas ao vivo serão gerados através de JS -->
             </div>
           </div>
         </div>
