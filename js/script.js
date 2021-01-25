@@ -13,6 +13,9 @@ import slideHTML from './helpers/templateHTML/slideHTML.js';
 // Importando a classe que realiza o fecth na API
 import FetchAPI from './helpers/fetch/fetchAPI.js';
 
+// Importando a função que pega os parâmetros da URL da página
+import getURLParams from './helpers/getUrlParams/getUrlParams.js';
+
 // Importando a classe do Dropdown
 import Dropdown from './modules/dropdown.js';
 // Importando a classe da navegação por tabs
