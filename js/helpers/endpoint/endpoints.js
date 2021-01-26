@@ -52,3 +52,16 @@ export function GET_PARTIDAS_CAMP(campeonato_id) {
     },
   };
 }
+
+// Endpoint das fases de um campeonato específico
+export function GET_CAMP_FASES(campeonato_id) {
+  return {
+    url: `https://api.api-futebol.com.br/v1/campeonatos/${campeonato_id}/fases`,
+    options: {
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${apiKey}`,
+      },
+    },
+  };
+}

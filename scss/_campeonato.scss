@@ -54,3 +54,66 @@
     }
   }
 }
+
+// Section com as fases do campeonato
+.camp-fases {
+  padding: 3rem 0 2rem 0;
+  background: $white;
+
+  .fases-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+
+    @include responsive(medium) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include responsive(small) {
+      grid-template-columns: 1fr;
+    }
+
+    .fase {
+      border: 1px solid darken($color: $white, $amount: 20);
+      @include border-radius;
+      padding: 1rem;
+      cursor: pointer;
+
+      .fase-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.8rem;
+      }
+
+      h2 {
+        @include type(bold, 1.2rem);
+
+        @include responsive(small) {
+          margin-bottom: 0.8rem;
+        }
+      }
+
+      p {
+        @include type(light, 1rem);
+      }
+
+      .status {
+        padding: 0.5rem;
+        background: $dark-green;
+        @include border-radius;
+        @include type(light, 0.8rem);
+        color: $white;
+      }
+    }
+
+    .fase + .fase {
+      margin-left: 1.5rem;
+      padding-left: 1rem;
+      border-left: 1px solid darken($color: $white, $amount: 20);
+    }
+  }
+}
