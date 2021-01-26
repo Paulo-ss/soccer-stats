@@ -37,6 +37,17 @@ export default class FetchAPI {
     this.active = active;
   }
 
+  // Método que cria a div de erro e a posiciona
+  // no appendTarget com a mensagem de erro
+  crateErrorElement(errorMessage) {
+    const errorDiv = document.createElement('div');
+
+    errorDiv.classList.add('error');
+    errorDiv.innerText = errorMessage;
+
+    this.appendTarget.append(errorDiv);
+  }
+
   // Método que cria um novo elemento com o conteúdo
   // retornado pela API
   createElement(data) {
@@ -78,7 +89,7 @@ export default class FetchAPI {
   getFetchOptions() {
     if (this.fetchConfigParams) {
       const { url, options } = this.fetchConfig(getURLParams());
-      console.log(getURLParams(), url, options);
+
       return { url, options };
     } else {
       const { url, options } = this.fetchConfig();
@@ -87,39 +98,58 @@ export default class FetchAPI {
     }
   }
 
+  // Método que define o loading para true/false
+  setLoading(state) {
+    this.loading = state;
+
+    if (state) {
+      this.loadingElement.classList.add(this.active);
+      document.body.style.overflow = 'hidden';
+    } else {
+      this.loadingElement.classList.remove(this.active);
+      document.body.style.overflow = 'auto';
+    }
+  }
+
   // Método que faz o fetch na url
   async fetchAPI() {
-    // Pegando a url e as opções do fetch a partir da função
-    // de congifuração (endpoints.js) que foi passada
-    const { url, options } = this.getFetchOptions();
+    try {
+      // Pegando a url e as opções do fetch a partir da função
+      // de congifuração (endpoints.js) que foi passada
+      const { url, options } = this.getFetchOptions();
 
-    // Setando o loading para true
-    this.loading = true;
-    this.loadingElement.classList.add(this.active);
-    document.body.style.overflow = 'hidden';
+      // Setando o loading para true
+      this.setLoading(true);
 
-    // Pegando a resposta do fetch e convertendo para JSON
-    const response = await fetch(url, options);
-    const json = await response.json();
+      // Pegando a resposta do fetch e convertendo para JSON
+      const response = await fetch(url, options);
+      const json = await response.json();
 
-    // Setando o loading para false
-    this.loading = false;
-    this.loadingElement.classList.remove(this.active);
-    document.body.style.overflow = 'auto';
+      // Setando o loading para false
+      this.setLoading(false);
 
-    // Só inicia a classe e cria os elementos se a resposta
-    // da requisição no fetch for true
-    if (response.ok) {
-      // Verificando o tipo de dado retornado (array ou objeto),
-      // e a partir disso executa as demais funções da classe
-      this.typeofData(json);
+      // Só inicia a classe e cria os elementos se a resposta
+      // da requisição no fetch for true
+      if (response.ok) {
+        // Verificando o tipo de dado retornado (array ou objeto),
+        // e a partir disso executa as demais funções da classe
+        this.typeofData(json);
 
-      // Caso alguma classe tenha sido fornecida como argumento,
-      // a mesma é iniciada com os seus argumentos fornecidos
-      if (this.classe) {
-        const classe = new this.classe(...this.classeArgs);
-        classe.init();
+        // Caso alguma classe tenha sido fornecida como argumento,
+        // a mesma é iniciada com os seus argumentos fornecidos
+        if (this.classe) {
+          const classe = new this.classe(...this.classeArgs);
+          classe.init();
+        }
+      } else {
+        throw new Error(json.message);
       }
+    } catch (err) {
+      // Setando o loading para false
+      this.setLoading(false);
+
+      // Executando o método que cria o elemento HTML de erro
+      this.crateErrorElement(err.message);
     }
   }
 

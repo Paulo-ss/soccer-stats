@@ -43,7 +43,7 @@ export function GET_PARTIDAS_AO_VIVO() {
 // Endpoint partidas de um campeonato específico
 export function GET_PARTIDAS_CAMP(campeonato_id) {
   return {
-    url: `https://api.api-futebol.com.br/v1/campeonatos/${campeonato_id}/partidas'`,
+    url: `https://api.api-futebol.com.br/v1/campeonatos/${campeonato_id}/partidas`,
     options: {
       method: 'GET',
       headers: {
