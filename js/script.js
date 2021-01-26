@@ -3,7 +3,7 @@ import {
   GET_CAMPEONATOS,
   GET_PARTIDAS_AO_VIVO,
   GET_CAMPEONATO,
-  GET_PARTIDAS_CAMP,
+  GET_CAMP_FASES,
 } from './helpers/endpoint/endpoints.js';
 
 // Importando as funções de template HTML que serão gerados
@@ -12,6 +12,7 @@ import navTabHTML from './helpers/templateHTML/navTab.js';
 import dropdownHTML from './helpers/templateHTML/dropdown.js';
 import slideHTML from './helpers/templateHTML/slideHTML.js';
 import campDescHTML from './helpers/templateHTML/campDescHTML.js';
+import campFasesHTML from './helpers/templateHTML/campFasesHTML.js';
 
 // Importando a classe que realiza o fecth na API
 import FetchAPI from './helpers/fetch/fetchAPI.js';
@@ -128,3 +129,13 @@ const fetchCamp = new FetchAPI(
   'active'
 );
 fetchCamp.init();
+
+// Iniciando a classe de fetchAPI para pegar as fases do campeonato
+const fetchFases = new FetchAPI(
+  '[data-append="camp-fases"]',
+  campFasesHTML,
+  GET_CAMP_FASES,
+  true,
+  'active'
+);
+fetchFases.init();
