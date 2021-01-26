@@ -11,13 +11,15 @@ export default function campFasesHTML(fases) {
     })
     .join(' ');
 
-  const innerHTML = `<div class="fase" id="${fase_id}">
-                      <div class="fase-info">
-                        <h2> ${nome} </h2>
-                        <p class="status"> ${status} </p>
+  const innerHTML = `<a href="#camp-fase" data-scroll-trigger>
+                      <div class="fase" id="${fase_id}">
+                        <div class="fase-info">
+                          <h2> ${nome} </h2>
+                          <p class="status"> ${status} </p>
+                        </div>
+                        <p class="tipo"> ${tipoFormatado} </p>
                       </div>
-                      <p class="tipo"> ${tipoFormatado} </p>
-                    </div>`;
+                      </a>`;
 
   return innerHTML;
 }
