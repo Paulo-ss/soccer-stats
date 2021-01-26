@@ -149,3 +149,8 @@ button {
 }
 
 @include key-loading;
+
+.divider {
+  height: 50px;
+  background: $white;
+}
