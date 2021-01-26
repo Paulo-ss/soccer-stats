@@ -29,7 +29,7 @@ export default class SmoothScroll {
   scrollToSection(e) {
     e.preventDefault();
 
-    const targetID = e.target.getAttribute('href');
+    const targetID = e.currentTarget.getAttribute('href');
     const target = document.querySelector(targetID);
 
     target.scrollIntoView({
@@ -43,7 +43,10 @@ export default class SmoothScroll {
     this.scrollBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         this.scrollToSection(e);
-        this.closeMenuMobile();
+
+        if (this.menuToggle && this.menuCotent && this.active) {
+          this.closeMenuMobile();
+        }
       });
     });
   }
