@@ -3,6 +3,7 @@ import {
   GET_CAMPEONATOS,
   GET_PARTIDAS_AO_VIVO,
   GET_CAMPEONATO,
+  GET_PARTIDAS_CAMP,
 } from './helpers/endpoint/endpoints.js';
 
 // Importando as funções de template HTML que serão gerados
@@ -127,3 +128,19 @@ const fetchCamp = new FetchAPI(
   'active'
 );
 fetchCamp.init();
+
+// Iniciando a classe de fetchAPI para o slide na página de campeonatos
+const fetchSlideCamp = new FetchAPI(
+  '[data-append="slide-camp"]',
+  slideHTML,
+  GET_PARTIDAS_CAMP,
+  true,
+  'active',
+  Slide,
+  '[data-prev-slide]',
+  '[data-next-slide]',
+  '[data-slide-content]',
+  '[data-slide]',
+  'active'
+);
+fetchSlideCamp.init();
