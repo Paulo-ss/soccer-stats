@@ -87,8 +87,10 @@ export default class FetchAPI {
   // Método que verifica se o fetchConfig recebe algum parâmetro
   // ou não, e retorna a url e options para o fetch
   getFetchOptions() {
+    const params = getURLParams();
+
     if (this.fetchConfigParams) {
-      const { url, options } = this.fetchConfig(getURLParams());
+      const { url, options } = this.fetchConfig(params);
 
       return { url, options };
     } else {
@@ -124,6 +126,7 @@ export default class FetchAPI {
       // Pegando a resposta do fetch e convertendo para JSON
       const response = await fetch(url, options);
       const json = await response.json();
+      console.log(json);
 
       // Setando o loading para false
       this.setLoading(false);
