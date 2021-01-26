@@ -1,0 +1,41 @@
+// Animação de loading
+.loading {
+  position: fixed;
+  top: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: $white;
+  z-index: 2000;
+
+  &.active {
+    display: flex;
+  }
+
+  img {
+    max-width: 250px;
+    margin-bottom: 1rem;
+  }
+
+  .loading-animation {
+    position: relative;
+    width: 250px;
+    height: 4px;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      width: 60%;
+      height: inherit;
+      background: $dark-green;
+      animation: loading 1s linear forwards infinite;
+    }
+  }
+}
+
+@include key-loading;

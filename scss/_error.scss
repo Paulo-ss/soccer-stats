@@ -1,0 +1,11 @@
+.error {
+  all: unset !important;
+  font-family: $font !important;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  padding: 1.5rem !important;
+  background: $error !important;
+  width: 100% !important;
+  border-left: 5px solid darken($color: $error, $amount: 10%) !important;
+  border-radius: 5px !important;
+}

@@ -12,6 +12,7 @@ import navTabHTML from './helpers/templateHTML/navTab.js';
 import dropdownHTML from './helpers/templateHTML/dropdown.js';
 import slideHTML from './helpers/templateHTML/slideHTML.js';
 import campDescHTML from './helpers/templateHTML/campDescHTML.js';
+import partidasHTML from './helpers/templateHTML/campDescHTML.js';
 
 // Importando a classe que realiza o fecth na API
 import FetchAPI from './helpers/fetch/fetchAPI.js';
@@ -132,7 +133,7 @@ fetchCamp.init();
 // Iniciando a classe de fetchAPI para o slide na página de campeonatos
 const fetchSlideCamp = new FetchAPI(
   '[data-append="slide-camp"]',
-  slideHTML,
+  partidasHTML,
   GET_PARTIDAS_CAMP,
   true,
   'active',
