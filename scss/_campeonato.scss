@@ -1,3 +1,4 @@
+// Seção com as principais informações do campeonato
 .campeonato-descricao {
   margin: 2rem 0;
 
@@ -80,6 +81,18 @@
       @include border-radius;
       padding: 1rem;
       cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #fff;
+      }
+
+      &.active {
+        box-shadow: 1px 5px 24px 18px rgba(0, 0, 0, 0.08);
+        -webkit-box-shadow: 1px 5px 24px 18px rgba(0, 0, 0, 0.08);
+        -moz-box-shadow: 1px 5px 24px 18px rgba(0, 0, 0, 0.08);
+        background: #fff;
+      }
 
       .fase-info {
         display: flex;
@@ -114,6 +127,142 @@
       margin-left: 1.5rem;
       padding-left: 1rem;
       border-left: 1px solid darken($color: $white, $amount: 20);
+    }
+  }
+}
+
+// Seção que mostra a fase específica do campeonato
+.camp-fase {
+  padding: 2rem 0;
+  background: darken($color: $white, $amount: 2);
+}
+
+.camp-fase-wrapper {
+  & > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+    @include responsive(small) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .selecione-uma-fase {
+    grid-column: 1 / 3;
+    @include type(bold, 1rem);
+    letter-spacing: 1.05;
+    text-align: center;
+    word-break: break-all;
+  }
+
+  .info {
+    grid-column: 1 / 3;
+    display: flex;
+    align-items: center;
+
+    @include responsive(small) {
+      grid-column: 1;
+    }
+
+    h2 {
+      @include type(bold, 1.5rem);
+    }
+
+    .status {
+      display: inline-block;
+      margin-left: 0.8rem;
+      padding: 0.3rem;
+      background: $dark-green;
+      color: $white;
+      @include type(light, 0.8rem);
+      @include border-radius;
+
+      @include responsive(small) {
+        width: 120px;
+        text-align: center;
+      }
+    }
+  }
+
+  .partida {
+    border: 1px solid $black;
+    @include border-radius;
+    padding: 1.2rem;
+
+    h3 {
+      display: flex;
+      align-items: center;
+      @include type(bold, 1.2rem);
+      margin-bottom: 1.5rem;
+
+      @include responsive(medium) {
+        font-size: 1rem;
+      }
+
+      .em-andamento {
+        display: inline-block;
+        margin-left: 0.8rem;
+        padding: 0.3rem;
+        background: $dark-green;
+        color: $white;
+        @include type(light, 0.8rem);
+        @include border-radius;
+
+        @include responsive(small) {
+          width: 120px;
+          text-align: center;
+        }
+      }
+    }
+
+    .placar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.5rem;
+
+      p {
+        margin: 0 1rem;
+        @include type(light, 1rem);
+
+        @include responsive(medium) {
+          margin: 0 0.7rem;
+          font-size: 0.9rem;
+        }
+
+        @include responsive(small) {
+          font-size: 1rem;
+        }
+      }
+
+      .escudo {
+        width: 45px;
+
+        @include responsive(small) {
+          width: 40px;
+        }
+      }
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-around;
+      @include type(light, 1rem);
+
+      p {
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          display: inline-block;
+          left: -10px;
+          width: 3px;
+          height: 100%;
+          background: $dark-green;
+        }
+      }
     }
   }
 }
