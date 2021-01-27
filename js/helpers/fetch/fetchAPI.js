@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 // Importando a função que pega os parâmetros da URL da página
 import getURLParams from '../getUrlParams/getUrlParams.js';
 
@@ -25,7 +26,7 @@ export default class FetchAPI {
     // Propriedade com a classe que deverá ser criada e iniciada
     // somente após o fetch e o novo elemento ser criado e posicionado
     // no DOM para que a classe consiga pegá-lo
-    this.classe = classe;
+    this.Classe = classe;
     // Argumentos que a classe a ser executada recebe
     this.classeArgs = classeArgs;
 
@@ -66,6 +67,7 @@ export default class FetchAPI {
   }
 
   // Método que verifica o tipo de dado retornado no fetch
+  // eslint-disable-next-line class-methods-use-this
   verifyData(json) {
     return Object.prototype.toString.call(json);
   }
@@ -93,6 +95,7 @@ export default class FetchAPI {
       const { url, options } = this.fetchConfig(params);
 
       return { url, options };
+      // eslint-disable-next-line no-else-return
     } else {
       const { url, options } = this.fetchConfig();
 
@@ -139,8 +142,8 @@ export default class FetchAPI {
 
         // Caso alguma classe tenha sido fornecida como argumento,
         // a mesma é iniciada com os seus argumentos fornecidos
-        if (this.classe) {
-          const classe = new this.classe(...this.classeArgs);
+        if (this.Classe) {
+          const classe = new this.Classe(...this.classeArgs);
           classe.init();
         }
       } else {

@@ -31,6 +31,10 @@ import ScrollAnimation from './modules/scrollAnimation.js';
 import DominoAnimation from './modules/dominoAnimation.js';
 // Importando a classe do scroll suave
 import SmoothScroll from './modules/smoothScroll.js';
+// Importando a classe do scroll pro topo
+import ScrollTop from './modules/scrollTop.js';
+// Importando a classe que faz o fetch de uma fase específica
+import FetchFase from './modules/fetchFase.js';
 
 // Iniciando a classe MenuMobile
 const menuMobile = new MenuMobile(
@@ -65,11 +69,15 @@ const smoothScroll = new SmoothScroll(
 );
 smoothScroll.init();
 
+// Iniciando a classe do botão para dar scroll pro topo da página
+const scrollTop = new ScrollTop('[data-scroll-top]', 'active');
+scrollTop.init();
+
 // Iniciando a classe de fetchAPI para o dropdown-menu
 const fetchDropdown = new FetchAPI(
   '[data-append="dropdown"]',
   dropdownHTML,
-  GET_CAMPEONATOS,
+  GET_CAMPEONATOS(),
   false,
   'active',
   Dropdown,
@@ -83,7 +91,7 @@ fetchDropdown.init();
 const fetchTab = new FetchAPI(
   '[data-append="tabNav"]',
   navTabHTML,
-  GET_CAMPEONATOS,
+  GET_CAMPEONATOS(),
   false,
   'active'
 );
@@ -93,7 +101,7 @@ fetchTab.init();
 const fetchCampeonato = new FetchAPI(
   '[data-append="campeonato"]',
   campCardHTML,
-  GET_CAMPEONATOS,
+  GET_CAMPEONATOS(),
   false,
   'active',
   TabNav,
@@ -107,7 +115,7 @@ fetchCampeonato.init();
 const fetchSlide = new FetchAPI(
   '[data-append="slide"]',
   slideHTML,
-  GET_PARTIDAS_AO_VIVO,
+  GET_PARTIDAS_AO_VIVO(),
   false,
   'active',
   Slide,
@@ -124,7 +132,7 @@ fetchSlide.init();
 const fetchCamp = new FetchAPI(
   '[data-append="campeonato-desc"]',
   campDescHTML,
-  GET_CAMPEONATO,
+  GET_CAMPEONATO(),
   true,
   'active'
 );
@@ -134,8 +142,12 @@ fetchCamp.init();
 const fetchFases = new FetchAPI(
   '[data-append="camp-fases"]',
   campFasesHTML,
-  GET_CAMP_FASES,
+  GET_CAMP_FASES(),
   true,
+  'active',
+  FetchFase,
+  '[data-fetch-fase]',
+  '[data-append="camp-fase"]',
   'active'
 );
 fetchFases.init();

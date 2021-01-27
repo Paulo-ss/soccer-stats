@@ -14,6 +14,9 @@
     <span class="loading-animation"></span>
   </div>
 
+  <!-- Botão para dar scroll pro topo da tela em telas de 1099px ou inferior -->
+  <button type="button" class="scroll-top" data-scroll-top> ↑ </button>
+
     <!-- Cabeçalho do site -->
     <header class="header">
       <div class="container">
@@ -60,6 +63,20 @@
         </div>
         <div class="fases-wrapper" data-append="camp-fases">
           <!-- As fases serão geradas através de JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção com os dados da fase específica -->
+    <section class="camp-fase" id="camp-fase">
+      <div class="container" data-animate-scroll>
+        <div class="camp-fase-wrapper" data-append="camp-fase">
+          <!-- Os dados da fase específica serão gerados através de JS -->
+          <div>
+            <div class="selecione-uma-fase">
+              Clique em uma das fases acima para ver os detalhes
+            </div>
+          </div>  
         </div>
       </div>
     </section>

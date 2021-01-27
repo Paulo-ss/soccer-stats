@@ -1,11 +1,11 @@
 // Função que retorna o template de HTML do slide
 export default function slideHTML(partida) {
   const {
-    partida_id,
+    partida_id: partidaId,
     placar,
     status,
-    data_realizacao,
-    hora_realizacao,
+    data_realizacao: dataRealizacao,
+    hora_realizacao: horaRealizacao,
   } = partida;
   const { nome: nomeCampeonato } = partida.campeonato;
   const { nome_popular: nomeEstadio } = partida.estadio;
@@ -13,7 +13,7 @@ export default function slideHTML(partida) {
   const { nome_popular: nomeTimeV, escudo: escudoV } = partida.time_visitante;
 
   const innerHTML = `<div class="partida" data-slide>
-                      <a href="partida.html?id=${partida_id}">
+                      <a href="partida.html?id=${partidaId}">
                         <h3> ${nomeCampeonato} <span class="em-andamento"> ${status} </span> </h3>
                         <div class="placar">
                           <img class="escudo" src="${escudoM}" alt="Escudo do ${nomeTimeM}">
@@ -21,8 +21,8 @@ export default function slideHTML(partida) {
                           <img class="escudo" src="${escudoV}" alt="Escudo do ${nomeTimeV}">
                         </div>
                         <div class="info">
-                          <p> ${data_realizacao} </p>
-                          <p> ${hora_realizacao} </p>
+                          <p> ${dataRealizacao} </p>
+                          <p> ${horaRealizacao} </p>
                           <p> ${nomeEstadio} </p>
                         </div>
                       </a>

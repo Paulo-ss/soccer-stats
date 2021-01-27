@@ -113,3 +113,37 @@ button {
   height: 50px;
   background: $white;
 }
+
+// Botão de scroll pro topo da página
+.scroll-top {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  padding: 1rem;
+  @include type(light, 2rem);
+  color: $white;
+  background: $dark-green;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid $black;
+  outline: none;
+  @include box-shadow;
+  cursor: pointer;
+  z-index: 3000;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: darken($color: $dark-green, $amount: 10);
+  }
+
+  &.active {
+    display: flex;
+    animation: opacity 0.3s ease forwards;
+  }
+}
+
+@include key-opacity;
