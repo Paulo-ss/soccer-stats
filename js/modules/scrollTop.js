@@ -17,11 +17,24 @@ export default class ScrollTop {
   }
 
   // Método que da scroll pro topo da página
+  // eslint-disable-next-line class-methods-use-this
   scrollToTop() {
     document.body.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
+  }
+
+  // Método que faz o toggle da classe de active
+  // no botão de scroll pro topo
+  toggleScrollBtn(state) {
+    if (state) {
+      this.scrollBtn.classList.add(this.active);
+      this.scrollBtn.addEventListener('click', this.scrollToTop);
+    } else {
+      this.scrollBtn.classList.remove(this.active);
+      this.scrollBtn.removeEventListener('click', this.scrollToTop);
+    }
   }
 
   // Método que verifica a posição do scroll e mostra
@@ -30,11 +43,9 @@ export default class ScrollTop {
     const scrollPosition = window.pageYOffset;
 
     if (scrollPosition >= 100) {
-      this.scrollBtn.classList.add(this.active);
-      this.scrollBtn.addEventListener('click', this.scrollToTop);
+      this.toggleScrollBtn(true);
     } else {
-      this.scrollBtn.classList.remove(this.active);
-      this.scrollBtn.removeEventListener('click', this.scrollToTop);
+      this.toggleScrollBtn(false);
     }
   }
 
@@ -47,6 +58,7 @@ export default class ScrollTop {
       window.addEventListener('scroll', this.handleScroll);
     } else {
       window.removeEventListener('scroll', this.handleScroll);
+      this.toggleScrollBtn(false);
     }
   }
 

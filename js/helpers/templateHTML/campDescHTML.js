@@ -7,11 +7,14 @@ export default function campDescHTML(campeonato) {
   // Formatando a string de tipo
   const tipoFormatado = tipo
     .split('-')
-    .map((tipo) => {
-      const firstLetter = tipo.charAt(0).toUpperCase();
-      return tipo.replace(/\w/i, firstLetter);
+    .map((i) => {
+      const firstLetter = i.charAt(0).toUpperCase();
+      return i.replace(/\w/i, firstLetter);
     })
     .join(' ');
+
+  // Trocando o título da página para o nome do campeonato
+  document.title = `${nome} - Soccer Stats`;
 
   const innerHTML = `<div class="camp-img">
                         <img src="${logo}" alt="Logo do ${nome}">
