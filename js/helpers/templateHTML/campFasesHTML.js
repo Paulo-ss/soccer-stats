@@ -6,7 +6,7 @@ export default function campFasesHTML(fases) {
   const tipoFormatado = tipo
     .split('-')
     .map((i) => {
-      const firstLetter = tipo.charAt(0).toUpperCase();
+      const firstLetter = i.charAt(0).toUpperCase();
       return i.replace(/\w/i, firstLetter);
     })
     .join(' ');
