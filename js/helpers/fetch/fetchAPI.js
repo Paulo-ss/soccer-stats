@@ -130,9 +130,6 @@ export default class FetchAPI {
       const response = await fetch(url, options);
       const json = await response.json();
 
-      // Setando o loading para false
-      this.setLoading(false);
-
       // Só inicia a classe e cria os elementos se a resposta
       // da requisição no fetch for true
       if (response.ok) {
@@ -146,6 +143,9 @@ export default class FetchAPI {
           const classe = new this.Classe(...this.classeArgs);
           classe.init();
         }
+
+        // Setando o loading para false
+        this.setLoading(false);
       } else {
         throw new Error(json.message);
       }

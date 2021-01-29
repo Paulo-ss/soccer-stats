@@ -67,9 +67,22 @@ export function GET_CAMP_FASES() {
 }
 
 // Endpoint dos dados de uma fase específica
-export function GET_CAMP_FASE(faseId) {
+export function GET_CAMP_FASE(faseID) {
   return (campeonatoID) => ({
-    url: `https://api.api-futebol.com.br/v1/campeonatos/${campeonatoID}/fases/${faseId}`,
+    url: `https://api.api-futebol.com.br/v1/campeonatos/${campeonatoID}/fases/${faseID}`,
+    options: {
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${apiKey}`,
+      },
+    },
+  });
+}
+
+// Endpoint com os dados de uma partida
+export function GET_PARTIDA() {
+  return (partidaID) => ({
+    url: `https://api.api-futebol.com.br/v1/partidas/${partidaID}`,
     options: {
       method: 'GET',
       headers: {

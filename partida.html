@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="./img/logo/Soccer-Stats-Fav.png">
+  <title> Partida - Soccer Stats </title>
+</head>
+<body>
+
+  <!-- Elemento de loading -->
+  <div class="loading" data-loading>
+    <img src="./img/logo/Soccer-Stats-Logo.png" alt="Logo Soccer Stats">
+    <span class="loading-animation"></span>
+  </div>
+
+    <!-- Cabeçalho do site -->
+    <header class="header">
+      <div class="container">
+        <div class="header-wrapper">
+          <div class="logo">
+            <a href="index.html" data-page-fetch>
+              <img src="./img/logo/Soccer-Stats-Logo.png" alt="Logo Soccer Stats">
+            </a>
+          </div>
+          <button class="mobile-button" data-mobile-toggle>
+            <span class="hamburguer"></span>
+            <span class="hamburguer"></span>
+            <span class="hamburguer"></span>
+          </button>
+          <nav class="main-nav" data-mobile-menu>
+            <ul class="nav">
+              <li><a class="dropdown-toggler" data-dropdown-toggle> Campeonatos </a>
+                <ul class="dropdown-menu" data-dropdown-menu data-append="dropdown">
+                  <!-- Os itens do dropdown serão gerados através de JS -->
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section com os detalhes da partida -->
+    <section class="partida-detalhes">
+      <div class="container">
+        <div class="partida-wrapper" data-append="partida">
+          <!-- Os dados da partida serão gerados através de JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-wrapper">
+          <div class="logo">
+            <img src="./img/logo/Soccer-Stats-Logo.png" alt="Logo Soccer Stats">
+          </div>
+          <h3 class="footer-text"> Desenvolvido por 
+            <a href="https://github.com/Paulo-ss" target="_blank"> Paulo_ss </a>
+            <img src="./img/GitHub.png" alt="Logo Github">
+          </h3>
+        </div>
+      </div>
+      <div class="powerded-by">
+        <h3> Informações fornecidas por <a href="https://www.api-futebol.com.br/" target="_blank"> API Futebol </a></h3>
+      </div>
+    </footer>
+
+  <script src="./main/main.js"></script>
+  
+</body>
+</html>

@@ -16,12 +16,10 @@ export default class ScrollAnimation {
 
   // Método que pega a distância do topo de cada section
   getSectionsOffsetTop() {
-    this.sectionsOffsetTop = this.sections.map((section) => {
-      return {
-        element: section,
-        offsetTop: section.offsetTop - this.halfWindow,
-      };
-    });
+    this.sectionsOffsetTop = this.sections.map((section) => ({
+      element: section,
+      offsetTop: section.offsetTop - this.halfWindow,
+    }));
   }
 
   // Método que anima as sections ao scroll
