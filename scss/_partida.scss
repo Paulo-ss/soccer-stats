@@ -1,0 +1,138 @@
+.partida-detalhes {
+  .partida-wrapper {
+    padding: 3rem 0 2rem 0;
+
+    .partida-placar {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      justify-items: center;
+      align-items: center;
+      margin-top: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid darken($color: $white, $amount: 10);
+
+      .escudo {
+        width: 80px;
+      }
+
+      p {
+        @include type(light, 1.2rem);
+
+        @include responsive(small) {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .partida-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
+      align-items: center;
+      margin-top: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid darken($color: $white, $amount: 10);
+
+      p {
+        @include type(light, 1.2rem);
+
+        @include responsive(small) {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .partida-gols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
+      align-items: center;
+      margin-top: 2.4rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid darken($color: $white, $amount: 10);
+
+      .bola {
+        width: 30px;
+      }
+
+      .gols {
+        @include type(light, 1rem);
+
+        @include responsive(small) {
+          font-size: 0.875rem;
+        }
+
+        p {
+          line-height: 1.5;
+        }
+      }
+
+      .gols:last-of-type {
+        text-align: right;
+      }
+    }
+
+    .partida-stats {
+      margin-top: 2rem;
+
+      .stats {
+        width: 100%;
+
+        tr {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0.9rem 0;
+
+          &:nth-of-type(even) {
+            background: $white;
+          }
+
+          p {
+            @include type(light, 1rem);
+
+            @include responsive(small) {
+              font-size: 0.875rem;
+            }
+          }
+        }
+
+        thead {
+          tr {
+            background: $white;
+
+            p {
+              @include type(bold, 1rem);
+            }
+          }
+
+          th:first-of-type {
+            margin-left: 1.2rem;
+          }
+
+          th:last-of-type {
+            margin-right: 1.2rem;
+          }
+
+          .escudo {
+            width: 40px;
+          }
+        }
+
+        tbody {
+          td:first-of-type {
+            margin-left: 2rem;
+          }
+
+          td:last-of-type {
+            margin-right: 2rem;
+          }
+        }
+
+        .bold {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

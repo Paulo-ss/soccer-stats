@@ -4,6 +4,7 @@ import {
   GET_PARTIDAS_AO_VIVO,
   GET_CAMPEONATO,
   GET_CAMP_FASES,
+  GET_PARTIDA,
 } from './helpers/endpoint/endpoints.js';
 
 // Importando as funções de template HTML que serão gerados
@@ -13,6 +14,7 @@ import dropdownHTML from './helpers/templateHTML/dropdown.js';
 import slideHTML from './helpers/templateHTML/slideHTML.js';
 import campDescHTML from './helpers/templateHTML/campDescHTML.js';
 import campFasesHTML from './helpers/templateHTML/campFasesHTML.js';
+import partidaInfoHTML from './helpers/templateHTML/partidaInfoHTML.js';
 
 // Importando a classe que realiza o fecth na API
 import FetchAPI from './helpers/fetch/fetchAPI.js';
@@ -151,3 +153,14 @@ const fetchFases = new FetchAPI(
   'active'
 );
 fetchFases.init();
+
+// Iniciando a classe de fetchAPI para pegar os dados
+// de uma partida específica
+const fetchPartida = new FetchAPI(
+  '[data-append="partida"]',
+  partidaInfoHTML,
+  GET_PARTIDA(),
+  true,
+  'active'
+);
+fetchPartida.init();
